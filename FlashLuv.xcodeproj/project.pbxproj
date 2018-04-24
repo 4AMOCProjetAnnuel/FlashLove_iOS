@@ -14,6 +14,7 @@
 		5A4938FF20809AC800A16A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4938FE20809AC800A16A95 /* Assets.xcassets */; };
 		5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390020809AC800A16A95 /* LaunchScreen.storyboard */; };
 		5A49390A20809EED00A16A95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390920809EED00A16A95 /* GoogleService-Info.plist */; };
+		7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A230D74208F5CC600191637 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5A49390320809AC800A16A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A49390920809EED00A16A95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		719DDB26965C892FADF62CA3 /* Pods-FlashLuv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashLuv.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv.release.xcconfig"; sourceTree = "<group>"; };
+		7A230D74208F5CC600191637 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				5A4938FE20809AC800A16A95 /* Assets.xcassets */,
 				5A49390020809AC800A16A95 /* LaunchScreen.storyboard */,
 				5A49390320809AC800A16A95 /* Info.plist */,
+				7A230D74208F5CC600191637 /* ProfileViewController.swift */,
 			);
 			path = FlashLuv;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
 				5A4938FA20809AC700A16A95 /* ViewController.swift in Sources */,
 				5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */,
 			);
