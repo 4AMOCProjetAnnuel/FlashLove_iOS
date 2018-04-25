@@ -11,34 +11,37 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    
-    let label1 : UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Test top'zer"
-        l.backgroundColor = .cyan
-        return l
+    let nameLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Jhéne Colombo"
+        label.backgroundColor = .clear
+        label.textAlignment = .center
+        label.font = UIFont(name: "Lato-Regular", size: 22)
+        return label
     }()
     
-    let label2 : UILabel = {
-        let l = UILabel()
-        l.translatesAutoresizingMaskIntoConstraints = false
-        l.text = "Test bottom'zer"
-        l.backgroundColor = .yellow
-        return l
+    let locationLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Paris, France"
+        label.backgroundColor = .clear
+        label.textAlignment = .center
+        label.font = UIFont(name: "Lato-Regular", size: 18)
+        return label
     }()
     
     let scrollView : UIScrollView = {
         let sv = UIScrollView()
         sv.translatesAutoresizingMaskIntoConstraints = false
-        sv.backgroundColor = .purple
+        sv.backgroundColor = .clear
         return sv
     }()
     
     let buttonStackView : UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.backgroundColor = .white
+        stackView.backgroundColor = .clear
         return stackView
     }()
     
@@ -49,6 +52,43 @@ class ProfileViewController: UIViewController {
         return imageView
     }()
     
+    let likeButton : UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.setTitle("Like", for: .normal)
+        button.tintColor = .darkGray
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.darkGray.cgColor
+        return button
+    }()
+    
+    let chatButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.setTitle("Chat", for: .normal)
+        button.tintColor = .darkGray
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.darkGray.cgColor
+        return button
+    }()
+    
+    let descriptionLabel : UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        label.text = "Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. "
+        label.numberOfLines = 0
+        label.font = UIFont(name: "Lato-Regular", size: 18)
+        label.textAlignment = .center
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -56,42 +96,51 @@ class ProfileViewController: UIViewController {
     }
     
     func setupLayout(){
+        view.backgroundColor = .white
         view.addSubview(scrollView)
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         
-        //scrollView.addSubview(label1)
-        //scrollView.addSubview(label2)
         scrollView.addSubview(profileImageView)
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(locationLabel)
         scrollView.addSubview(buttonStackView)
-        
-        /*label1.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
-        //label1.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        label1.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        label1.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
-        
-        label2.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 1000).isActive = true
-        label2.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -25).isActive = true
-        label2.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        label2.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true*/
-        
-        profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
-        //profileImageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -25).isActive = true
-        //profileImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        //profileImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        scrollView.addSubview(descriptionLabel)
+       
 
         
-        buttonStackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 1000).isActive = true
-        buttonStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -25).isActive = true
-        buttonStackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0).isActive = true
-        buttonStackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0).isActive = true
         
-        buttonStackView.addArrangedSubview(label1)
-        buttonStackView.addArrangedSubview(label2)
+        profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        
+
+        nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        
+        locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
+        locationLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
+        locationLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        
+        buttonStackView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
+        buttonStackView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
+        buttonStackView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        
+        descriptionLabel.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        
+        
+        buttonStackView.addArrangedSubview(likeButton)
+        buttonStackView.addArrangedSubview(chatButton)
+    
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 15
 
     }
 }
