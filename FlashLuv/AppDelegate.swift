@@ -18,8 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // Use Firebase library to configure APIs
-        FirebaseApp.configure()
+        //recupère le bundle ID
+        let bundleIdentifier = Bundle.main.bundleIdentifier
+        
+        //définition du filepath du GoogleService-Info
+        let filePath = Bundle.main.path(forResource: "GoogleService-Info." + bundleIdentifier!, ofType: "plist")
+        if(filePath != nil)
+        {
+            //on charge le plist avec le bundle spécifié (en général celui de test)
+            guard let fileopts = FirebaseOptions(contentsOfFile: filePath!) else {
+                assert(false, "Couldn't load config file")
+                return true
+            }
+            FirebaseApp.configure(options: fileopts)
+            
+        }else {
+            //on charge le plist par defaut
+            FirebaseApp.configure()
+        }
         return true
     }
 

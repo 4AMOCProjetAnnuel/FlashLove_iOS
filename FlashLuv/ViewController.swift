@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let label = UILabel()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sendToProfilePicture(_ sender: Any) {
-        
-        present(ProfileViewController(), animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: ProfileViewController())
+        present(navigationController, animated: true, completion: nil)
     }
     
 }

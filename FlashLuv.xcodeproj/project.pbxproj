@@ -17,6 +17,8 @@
 		7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A230D74208F5CC600191637 /* ProfileViewController.swift */; };
 		7A230D792090BDE600191637 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A230D772090BDE600191637 /* Lato-Bold.ttf */; };
 		7A230D7A2090BDE600191637 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A230D782090BDE600191637 /* Lato-Regular.ttf */; };
+		7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8AB8302091E18F0067D67C /* ChatLogController.swift */; };
+		7A8AB83320922B1E0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		7A230D74208F5CC600191637 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7A230D772090BDE600191637 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		7A230D782090BDE600191637 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		7A8AB8302091E18F0067D67C /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.com.moc.bigteam.FlashLuv.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,9 @@
 				5A4938FE20809AC800A16A95 /* Assets.xcassets */,
 				5A49390020809AC800A16A95 /* LaunchScreen.storyboard */,
 				5A49390320809AC800A16A95 /* Info.plist */,
+				7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */,
 				7A230D74208F5CC600191637 /* ProfileViewController.swift */,
+				7A8AB8302091E18F0067D67C /* ChatLogController.swift */,
 				7A230D762090BDD200191637 /* fonts */,
 			);
 			path = FlashLuv;
@@ -169,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8AB83320922B1E0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist in Resources */,
 				5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */,
 				7A230D7A2090BDE600191637 /* Lato-Regular.ttf in Resources */,
 				7A230D792090BDE600191637 /* Lato-Bold.ttf in Resources */,
@@ -247,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */,
 				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
 				5A4938FA20809AC700A16A95 /* ViewController.swift in Sources */,
 				5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */,
