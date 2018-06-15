@@ -8,17 +8,22 @@
 
 import UIKit
 import Firebase
+import FirebaseAuthUI
+import TwitterKit
+//import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
     var window: UIWindow?
-
+    let TWITTER_CONSUMER_KEY = "VfZ8WUCKsafBxWApoAdhoM3HU"
+    let TWITTER_CONSUMER_SECRET = "PrSOruBotAoVtSmgoT4sJLdYfIbXmS9zvRLL6EBbztoVdSSw2D"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        //recupère le bundle ID
+        /*//recupère le bundle ID
         let bundleIdentifier = Bundle.main.bundleIdentifier
         
         //définition du filepath du GoogleService-Info
@@ -34,9 +39,93 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }else {
             //on charge le plist par defaut
-            FirebaseApp.configure()
+         
+        }*/
+        FirebaseApp.configure()
+        //Google sign in
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        //twitter
+        TWTRTwitter.sharedInstance().start(withConsumerKey:TWITTER_CONSUMER_KEY,
+                                       consumerSecret:TWITTER_CONSUMER_SECRET)
+        
+        window = UIWindow(frame : UIScreen.main.bounds)
+        // window?.rootViewController = UINavigationController(rootViewController: MainStoreViewController())
+        if (Auth.auth().currentUser?.uid == nil){
+            window?.rootViewController =  UINavigationController(rootViewController:LoginViewController())
+            
+
+        }else{
+            //window?.rootViewController =  UINavigationController(rootViewController:ProfileViewController())
+            window?.rootViewController =  UINavigationController(rootViewController:ViewController())
         }
+        
+        window?.makeKeyAndVisible()
+        
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
+        navigationBar.tintColor = UIColor.white
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    
+        
+        
+        
+        //AuthUI
+        //let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        //authUI?.delegate = self as! FUIAuthDelegate
+        
+        UITabBar.appearance().tintColor = .white
+        //UITabBar.appearance().backgroundColor = .cyan
+        UITabBar.appearance().backgroundColor = UIColor().getPrimaryPinkDark()
+
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        //        if Auth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+        //            return true
+        //        }
+        // other URL handling goes here.
+        //return false
+        return GIDSignIn.sharedInstance().handle(url,
+                                                 sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                                 annotation: [:])
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if error != nil {
+            // ...
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if error != nil {
+                print("Erreur google sign in")
+            }else{
+                // User is signed in
+                // ...
+                print(Auth.auth().currentUser?.uid)
+                print(Auth.auth().currentUser?.uid)
+                self.window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+            }
+            
+            
+
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -63,4 +152,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+extension UIColor {
+    
+    func getPrimaryPinkDark() -> UIColor {
+        return UIColor(red: 198/255, green: 0/255, blue: 85/255, alpha: 1.0)
+    }
+}
+
 

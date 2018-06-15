@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -93,12 +94,25 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         setupLayout()
 
+    }
+    @objc func handleLogout(){
+        
+        do {
+            try Auth.auth().signOut()
+            let loginViewController = LoginViewController()
+            present(loginViewController, animated: true, completion: nil)
+        }catch let signoutError {
+            print(signoutError)
+        }
+ 
     }
     
     func setupLayout(){
         navigationItem.title = "Profile"
+        navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -154,6 +168,7 @@ class ProfileViewController: UIViewController {
     
     @objc func chatLogController(){
     
-        navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+       // navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+        navigationController?.pushViewController(UserConnectedProfileViewController(), animated: false)
     }
 }

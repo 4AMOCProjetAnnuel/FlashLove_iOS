@@ -77,8 +77,14 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
         childRef.updateChildValues(values)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         sendMessage()
+        textField.resignFirstResponder()
         return true
+    }
+    
+    //This is for the keyboard to GO AWAYY !! when user clicks anywhere on the view
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

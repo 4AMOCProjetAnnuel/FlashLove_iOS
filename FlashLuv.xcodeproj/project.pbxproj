@@ -8,36 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		32F9EDCC81E2D15BF96D10EE /* Pods_FlashLuv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A1AA17FE3F6D22FF5A359D /* Pods_FlashLuv.framework */; };
+		5A202CA220B44E6D00933C7D /* UserConnectedProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */; };
 		5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4938F720809AC700A16A95 /* AppDelegate.swift */; };
-		5A4938FA20809AC700A16A95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4938F920809AC700A16A95 /* ViewController.swift */; };
-		5A4938FD20809AC700A16A95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A4938FB20809AC700A16A95 /* Main.storyboard */; };
 		5A4938FF20809AC800A16A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4938FE20809AC800A16A95 /* Assets.xcassets */; };
 		5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390020809AC800A16A95 /* LaunchScreen.storyboard */; };
-		5A49390A20809EED00A16A95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390920809EED00A16A95 /* GoogleService-Info.plist */; };
+		5A714EA420D3E70E00A785EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A714EA320D3E70E00A785EB /* GoogleService-Info.plist */; };
+		5A714EA620D402A000A785EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A714EA520D402A000A785EB /* ViewController.swift */; };
+		5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F8192095F3D3008E7027 /* LoginViewController.swift */; };
+		5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */; };
+		5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AED52A920D3D27500A36D7A /* PhotoViewController.swift */; };
 		7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A230D74208F5CC600191637 /* ProfileViewController.swift */; };
 		7A230D792090BDE600191637 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A230D772090BDE600191637 /* Lato-Bold.ttf */; };
 		7A230D7A2090BDE600191637 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A230D782090BDE600191637 /* Lato-Regular.ttf */; };
 		7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8AB8302091E18F0067D67C /* ChatLogController.swift */; };
-		7A8AB83320922B1E0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01A1AA17FE3F6D22FF5A359D /* Pods_FlashLuv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashLuv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43630761E132DEC655789476 /* Pods-FlashLuv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashLuv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv.debug.xcconfig"; sourceTree = "<group>"; };
+		5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConnectedProfileViewController.swift; sourceTree = "<group>"; };
 		5A4938F420809AC700A16A95 /* FlashLuv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashLuv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4938F720809AC700A16A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A4938F920809AC700A16A95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5A4938FC20809AC700A16A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A4938FE20809AC800A16A95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A49390120809AC800A16A95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A49390320809AC800A16A95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A49390920809EED00A16A95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A714EA320D3E70E00A785EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5A714EA520D402A000A785EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5AB9A9522097417C00931D63 /* FlashLuv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashLuv.entitlements; sourceTree = "<group>"; };
+		5AE0F8192095F3D3008E7027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewController.swift; sourceTree = "<group>"; };
+		5AED52A920D3D27500A36D7A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		719DDB26965C892FADF62CA3 /* Pods-FlashLuv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashLuv.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv.release.xcconfig"; sourceTree = "<group>"; };
 		7A230D74208F5CC600191637 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7A230D772090BDE600191637 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		7A230D782090BDE600191637 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		7A8AB8302091E18F0067D67C /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
-		7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.com.moc.bigteam.FlashLuv.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,17 +87,20 @@
 		5A4938F620809AC700A16A95 /* FlashLuv */ = {
 			isa = PBXGroup;
 			children = (
+				5AB9A9522097417C00931D63 /* FlashLuv.entitlements */,
 				5A4938F720809AC700A16A95 /* AppDelegate.swift */,
-				5A49390920809EED00A16A95 /* GoogleService-Info.plist */,
-				5A4938F920809AC700A16A95 /* ViewController.swift */,
-				5A4938FB20809AC700A16A95 /* Main.storyboard */,
+				5AE0F8192095F3D3008E7027 /* LoginViewController.swift */,
+				5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */,
+				5A714EA320D3E70E00A785EB /* GoogleService-Info.plist */,
 				5A4938FE20809AC800A16A95 /* Assets.xcassets */,
 				5A49390020809AC800A16A95 /* LaunchScreen.storyboard */,
 				5A49390320809AC800A16A95 /* Info.plist */,
-				7A8AB83220922B1D0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist */,
 				7A230D74208F5CC600191637 /* ProfileViewController.swift */,
+				5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */,
 				7A8AB8302091E18F0067D67C /* ChatLogController.swift */,
 				7A230D762090BDD200191637 /* fonts */,
+				5AED52A920D3D27500A36D7A /* PhotoViewController.swift */,
+				5A714EA520D402A000A785EB /* ViewController.swift */,
 			);
 			path = FlashLuv;
 			sourceTree = "<group>";
@@ -149,6 +157,11 @@
 				TargetAttributes = {
 					5A4938F320809AC700A16A95 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -175,13 +188,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8AB83320922B1E0067D67C /* GoogleService-Info.com.moc.bigteam.FlashLuv.plist in Resources */,
 				5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */,
 				7A230D7A2090BDE600191637 /* Lato-Regular.ttf in Resources */,
 				7A230D792090BDE600191637 /* Lato-Bold.ttf in Resources */,
-				5A49390A20809EED00A16A95 /* GoogleService-Info.plist in Resources */,
 				5A4938FF20809AC800A16A95 /* Assets.xcassets in Resources */,
-				5A4938FD20809AC700A16A95 /* Main.storyboard in Resources */,
+				5A714EA420D3E70E00A785EB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,9 +223,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -228,17 +256,41 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -254,9 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A202CA220B44E6D00933C7D /* UserConnectedProfileViewController.swift in Sources */,
 				7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */,
 				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
-				5A4938FA20809AC700A16A95 /* ViewController.swift in Sources */,
+				5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */,
+				5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */,
+				5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */,
+				5A714EA620D402A000A785EB /* ViewController.swift in Sources */,
 				5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,14 +320,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5A4938FB20809AC700A16A95 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5A4938FC20809AC700A16A95 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5A49390020809AC800A16A95 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -402,6 +450,7 @@
 			baseConfigurationReference = 43630761E132DEC655789476 /* Pods-FlashLuv.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashLuv/FlashLuv.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
@@ -421,6 +470,7 @@
 			baseConfigurationReference = 719DDB26965C892FADF62CA3 /* Pods-FlashLuv.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashLuv/FlashLuv.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
