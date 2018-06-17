@@ -75,12 +75,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
-        GIDSignIn.sharedInstance().signOut()
-        
         setupLoginLayout()
         setupLoginRegisterSegemnetedControl()
+        setupGoogleSignInButton()
+        
     }
     
     func setupLoginRegisterSegemnetedControl() {
@@ -110,6 +108,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         }
     }
     
+    
+    func setupGoogleSignInButton(){
+        let googleSignInButton = GIDSignInButton()
+        googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(googleSignInButton)
+        googleSignInButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20).isActive = true
+        googleSignInButton.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 0).isActive = true
+        googleSignInButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, constant: 0).isActive = true
+        googleSignInButton.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signOut()
+    }
     var inputsContainerViewHeightAnchor : NSLayoutConstraint?
     
     
@@ -132,14 +143,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         registerButton.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 0).isActive = true
         registerButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, constant: 0).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 75)
-        
-        let googleSignInButton = GIDSignInButton()
-        googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(googleSignInButton)
-        googleSignInButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20).isActive = true
-        googleSignInButton.leadingAnchor.constraint(equalTo: inputsContainerView.leadingAnchor, constant: 0).isActive = true
-        googleSignInButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, constant: 0).isActive = true
-        googleSignInButton.heightAnchor.constraint(equalToConstant: 75).isActive = true
 
     }
     

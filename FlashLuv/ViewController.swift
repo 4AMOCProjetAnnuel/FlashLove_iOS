@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 class ViewController: UITabBarController {
 
@@ -30,6 +31,7 @@ class ViewController: UITabBarController {
     @objc func handleLogout(){
         
         do {
+            GIDSignIn.sharedInstance().signOut()
             try Auth.auth().signOut()
             let loginViewController = LoginViewController()
             present(loginViewController, animated: true, completion: nil)

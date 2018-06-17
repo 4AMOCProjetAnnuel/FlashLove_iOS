@@ -21,26 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     let TWITTER_CONSUMER_SECRET = "PrSOruBotAoVtSmgoT4sJLdYfIbXmS9zvRLL6EBbztoVdSSw2D"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        /*//recupère le bundle ID
-        let bundleIdentifier = Bundle.main.bundleIdentifier
-        
-        //définition du filepath du GoogleService-Info
-        let filePath = Bundle.main.path(forResource: "GoogleService-Info." + bundleIdentifier!, ofType: "plist")
-        if(filePath != nil)
-        {
-            //on charge le plist avec le bundle spécifié (en général celui de test)
-            guard let fileopts = FirebaseOptions(contentsOfFile: filePath!) else {
-                assert(false, "Couldn't load config file")
-                return true
-            }
-            FirebaseApp.configure(options: fileopts)
-            
-        }else {
-            //on charge le plist par defaut
-         
-        }*/
+        // Override point for customization after application launch
         FirebaseApp.configure()
         //Google sign in
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -53,11 +34,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // window?.rootViewController = UINavigationController(rootViewController: MainStoreViewController())
         if (Auth.auth().currentUser?.uid == nil){
             window?.rootViewController =  UINavigationController(rootViewController:LoginViewController())
-            
 
         }else{
             //window?.rootViewController =  UINavigationController(rootViewController:ProfileViewController())
-            window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+            //window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+            window?.rootViewController =  UINavigationController(rootViewController:LoginViewController())
         }
         
         window?.makeKeyAndVisible()
@@ -90,23 +71,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //        }
         // other URL handling goes here.
         //return false
-        return GIDSignIn.sharedInstance().handle(url,
-                                                 sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: [:])
+        GIDSignIn.sharedInstance().handle(url,
+                                          sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                          annotation: [:])
+        return false
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if error != nil {
-            // ...
+            print("Failed to log in into Google")
             return
         }
         
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
+        //guard let authentication = user.authentication else { return }
+        guard let idToken = user.authentication.idToken else { return }
+        guard let acccesToken = user.authentication.accessToken else { return }
+
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                       accessToken: acccesToken)
         
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error != nil {
+                print("Fail to create a Firebase User", error)
+                return
+            }
+            
+            guard let uid = user?.uid else {return}
+            print("Connecté avec cet uid", uid)
+            let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+            let usersReference = ref.child("users").child(uid)
+            let values = ["displayName" : user?.displayName, "email": user?.email]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+                //self.dismiss(animated: true, completion: nil)
+                print("User saved")
+            })
+            self.window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+        }
+        
+        /*Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
             if error != nil {
                 print("Erreur google sign in")
             }else{
@@ -114,12 +121,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 // ...
                 print(Auth.auth().currentUser?.uid)
                 print(Auth.auth().currentUser?.uid)
-                self.window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+         
             }
             
             
 
-        }
+        }*/
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
