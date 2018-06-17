@@ -23,23 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch
         FirebaseApp.configure()
+        
         //Google sign in
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
         //twitter
         TWTRTwitter.sharedInstance().start(withConsumerKey:TWITTER_CONSUMER_KEY,
                                        consumerSecret:TWITTER_CONSUMER_SECRET)
         
         window = UIWindow(frame : UIScreen.main.bounds)
-        // window?.rootViewController = UINavigationController(rootViewController: MainStoreViewController())
-        if (Auth.auth().currentUser?.uid == nil){
-            window?.rootViewController =  UINavigationController(rootViewController:LoginViewController())
-
-        }else{
-            //window?.rootViewController =  UINavigationController(rootViewController:ProfileViewController())
-            //window?.rootViewController =  UINavigationController(rootViewController:ViewController())
-            window?.rootViewController =  UINavigationController(rootViewController:LoginViewController())
-        }
+        window?.rootViewController =  UINavigationController(rootViewController:FlashLuvTabBarController())
+        
         
         window?.makeKeyAndVisible()
         
@@ -47,17 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
         navigationBar.tintColor = UIColor.white
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    
-        
-        
-        
-        //AuthUI
-        //let authUI = FUIAuth.defaultAuthUI()
-        // You need to adopt a FUIAuthDelegate protocol to receive callback
-        //authUI?.delegate = self as! FUIAuthDelegate
         
         UITabBar.appearance().tintColor = .white
-        //UITabBar.appearance().backgroundColor = .cyan
         UITabBar.appearance().backgroundColor = UIColor().getPrimaryPinkDark()
 
         return true
@@ -101,8 +87,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Connecté avec cet uid", uid)
             let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
-            let values = ["displayName" : user?.displayName, "email": user?.email]
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email]
+                        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)
                     return
@@ -110,23 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 //self.dismiss(animated: true, completion: nil)
                 print("User saved")
             })
-            self.window?.rootViewController =  UINavigationController(rootViewController:ViewController())
+            self.window?.rootViewController =  UINavigationController(rootViewController:FlashLuvTabBarController())
         }
-        
-        /*Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if error != nil {
-                print("Erreur google sign in")
-            }else{
-                // User is signed in
-                // ...
-                print(Auth.auth().currentUser?.uid)
-                print(Auth.auth().currentUser?.uid)
-         
-            }
-            
-            
-
-        }*/
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {

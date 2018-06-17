@@ -6,9 +6,12 @@
 //  Copyright © 2018 Isma Dia. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
-class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UITextFieldDelegate{
+class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
     let nameLabel : UILabel = {
         let label = UILabel()
@@ -124,7 +127,7 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         label.layer.borderColor = UIColor.darkGray.cgColor
         return label
     }()
-
+    
     let profileVisitsNumberContainerView : UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -145,7 +148,7 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         return view
         
     }()
-
+    
     let profileVisitsNumberLabel : UILabel = {
         let label = UILabel()
         label.text = "10M"
@@ -169,24 +172,74 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         button.layer.borderColor = UIColor.white.cgColor
         return button
     }()
-
-    let userName = "User profile"
+    
+    var userName = "User profile"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextView.delegate = self
         ageTextField.delegate = self
         descriptionTextView.delegate = self
+        registerProfileInfoButton.addTarget(self, action: #selector(setUserInfoInDatabase), for: .touchUpInside)
+        setupNavigationController()
         setupLayout()
+        getUserInfoFromFirebase()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func getUserInfoFromFirebase() {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            print(snapshot)
+            if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                self.nameLabel.text = userFieldDictionnary["displayName"] as? String
+                self.emailTextView.text = userFieldDictionnary["email"] as? String
+                self.ageTextField.text = userFieldDictionnary["age"] as? String
+                self.descriptionTextView.text = userFieldDictionnary["description"] as? String
+            }
+        }, withCancel: nil)
     }
     
-     //TextView
+    @objc func setUserInfoInDatabase() {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard
+            let email = emailTextView.text,
+            let name = nameLabel.text else {
+                print("form unvalid")
+                return
+        }
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        //let values = ["name" : name, "email": email , "age": 10] as [String : Any]
+        let values = ["uid": uid,"displayName" : name, "email": email, "single" : false, "description" :self.descriptionTextView.text,"age" : self.ageTextField.text,"picture" : "","profileCompleted" : false,"photoUrl": "",
+                      "views": 0,
+                      "likes": 0,
+                      "flirts":0
+            ] as [String : Any]
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            print("User Modified")
+        })
+        
+    }
+    
+    func setupNavigationController(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            print(snapshot)
+            if let userFiledDictionnary = snapshot.value as? [String: Any]{
+                self.navigationItem.title = userFiledDictionnary["displayName"] as? String
+            }
+        }, withCancel: nil)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.barTintColor = .green
+    }
+    
+    //TextView
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == .lightGray {
             textView.text = ""
@@ -201,13 +254,7 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         }
     }
     
-    /*func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-    }*/
+    
     //User touches outaside the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -218,12 +265,8 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         textField.resignFirstResponder()
         return true
     }
-
+    
     func setupLayout(){
-        navigationItem.title = userName
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
         view.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
@@ -242,15 +285,12 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         scrollView.addSubview(ageTextField)
         scrollView.addSubview(descriptionTextView)
         scrollView.addSubview(registerProfileInfoButton)
-
-        
         
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        profileImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor, multiplier: 1).isActive = true
         profileImageView.layer.cornerRadius = profileImageView.frame.width/2
         profileImageView.contentMode = .scaleToFill
@@ -258,42 +298,41 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         
         
         nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
         locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10).isActive = true
-        locationLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        locationLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        locationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
         buttonStackView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
-        buttonStackView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        buttonStackView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         buttonStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
+        
         emailTextView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
         //emailTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
-        emailTextView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        emailTextView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        emailTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emailTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         emailTextView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         ageTextField.topAnchor.constraint(equalTo: emailTextView.bottomAnchor, constant: 10).isActive = true
         //ageTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
-        ageTextField.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        ageTextField.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        ageTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        ageTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         ageTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         descriptionTextView.topAnchor.constraint(equalTo: ageTextField.bottomAnchor, constant: 10).isActive = true
         //descriptionTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
-        descriptionTextView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        descriptionTextView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        descriptionTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
         registerProfileInfoButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 10).isActive = true
         registerProfileInfoButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
-        registerProfileInfoButton.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
-        registerProfileInfoButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        registerProfileInfoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        registerProfileInfoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         registerProfileInfoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
         
         
         buttonStackView.addArrangedSubview(setupProfileVisitsNumberView())
@@ -316,20 +355,20 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         profileVisitsNumberImageView.centerXAnchor.constraint(equalTo: profileVisitsNumberContainerView.centerXAnchor).isActive = true
         profileVisitsNumberImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         profileVisitsNumberImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-
+        
         
         
         profileVisitsNumberLabel.topAnchor.constraint(equalTo: profileVisitsNumberImageView.bottomAnchor, constant: 2).isActive = true
         profileVisitsNumberLabel.leadingAnchor.constraint(equalTo: profileVisitsNumberContainerView.leadingAnchor, constant: 20).isActive = true
         profileVisitsNumberLabel.trailingAnchor.constraint(equalTo: profileVisitsNumberContainerView.trailingAnchor, constant: -20).isActive = true
         profileVisitsNumberLabel.bottomAnchor.constraint(equalTo: profileVisitsNumberContainerView.bottomAnchor, constant: 10).isActive = true
-
+        
         return profileVisitsNumberContainerView
     }
     
     @objc func chatLogController(){
         
-        navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+        // navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
     }
     
     @objc func keyboardDismiss(){
@@ -337,8 +376,11 @@ class UserConnectedProfileViewController: ViewController, UITextViewDelegate, UI
         self.view.endEditing(true)
         
     }
-
+    
     override func viewDidLayoutSubviews() {
         profileImageView.layer.cornerRadius = profileImageView.frame.height/2
     }
+    
+    
 }
+

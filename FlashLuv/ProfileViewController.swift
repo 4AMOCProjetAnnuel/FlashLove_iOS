@@ -22,6 +22,17 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let situationLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Célibataire, 23 ans"
+        label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        label.textColor = .white
+        label.textAlignment = .left
+        label.font = UIFont(name: "Lato-Bold", size: 16)
+        return label
+    }()
+    
     let locationLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -121,6 +132,7 @@ class ProfileViewController: UIViewController {
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         
         scrollView.addSubview(profileImageView)
+        scrollView.addSubview(situationLabel)
         scrollView.addSubview(nameLabel)
         scrollView.addSubview(locationLabel)
         scrollView.addSubview(buttonStackView)
@@ -130,12 +142,14 @@ class ProfileViewController: UIViewController {
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        profileImageView.layer.cornerRadius = 5
         profileImageView.contentMode = .scaleToFill
         
+        situationLabel.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -10).isActive = true
+        situationLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 0).isActive = true
+        situationLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -view.frame.width/2).isActive = true
         
 
         nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true

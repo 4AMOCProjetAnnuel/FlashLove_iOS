@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import GoogleSignIn
 
-class ViewController: UITabBarController {
+class TapBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +26,13 @@ class ViewController: UITabBarController {
         let viewControllerList = [ profileViewController,photoViewController]
          viewControllers = viewControllerList
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        
+        if Auth.auth().currentUser?.uid == nil {
+            handleLogout()
+        }
     }
     
     @objc func handleLogout(){
-        
         do {
             GIDSignIn.sharedInstance().signOut()
             try Auth.auth().signOut()
