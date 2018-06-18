@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
@@ -103,10 +104,26 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let quizzButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor().getPrimaryPinkDark()
+        button.setTitle("Quizz", for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.white.cgColor
+        return button
+    }()
+    
+    var uid : String? = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         setupLayout()
+        getUserInfoFromFirebase()
 
     }
     @objc func handleLogout(){
@@ -137,15 +154,16 @@ class ProfileViewController: UIViewController {
         scrollView.addSubview(locationLabel)
         scrollView.addSubview(buttonStackView)
         scrollView.addSubview(descriptionLabel)
+        scrollView.addSubview(quizzButton)
        
 
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
-        profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         profileImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
-        profileImageView.contentMode = .scaleToFill
+        profileImageView.contentMode = .scaleAspectFit
         
         situationLabel.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -10).isActive = true
         situationLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 0).isActive = true
@@ -165,9 +183,13 @@ class ProfileViewController: UIViewController {
         buttonStackView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        
+        quizzButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10).isActive = true
+        quizzButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
+        quizzButton.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
+        quizzButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
         
         
         buttonStackView.addArrangedSubview(likeButton)
@@ -179,6 +201,22 @@ class ProfileViewController: UIViewController {
         chatButton.addTarget(self, action: #selector(chatLogController), for: .touchUpInside)
 
     }
+    
+    func getUserInfoFromFirebase() {
+        //guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let uid = uid else {return}
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            print(snapshot)
+            if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                self.navigationItem.title = userFieldDictionnary["displayName"] as? String
+                self.nameLabel.text = userFieldDictionnary["displayName"] as? String
+               // self.emailTextView.text = userFieldDictionnary["email"] as? String
+                //self.ageTextField.text = userFieldDictionnary["age"] as? String
+                self.descriptionLabel.text = userFieldDictionnary["description"] as? String
+            }
+        }, withCancel: nil)
+    }
+    
     
     @objc func chatLogController(){
     

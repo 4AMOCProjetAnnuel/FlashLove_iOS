@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import FirebaseDatabase
 
 
 class PhotoViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -110,12 +111,41 @@ class PhotoViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
     
     func found(code: String) {
         
-        if let userName = code.components(separatedBy: "/").last {
-            print(userName)
-            captureSession.stopRunning()
+        let uid = code
+            print(uid)
+            let profileViewController = ProfileViewController()
+        captureSession.stopRunning()
+        let charset = CharacterSet(charactersIn: ".#$[]")
+        if uid.rangeOfCharacter(from: charset) != nil {
+            setupAlert()
+            return
+        }
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot.exists())
+            if (snapshot.exists()){
+                profileViewController.uid = uid
+                self.navigationController?.pushViewController(profileViewController, animated: true)
+            }else{
+                self.setupAlert()
+            }
+            
+        }) { (err) in
+            if err != nil {
+                print("user does not exist")
+            }
         }
         
     }
+    func setupAlert(){
+        let alert = UIAlertController(title: "Erreur", message: "L'utilisateur n'existe pas", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Réssayer", style: .cancel, handler: { (action) in
+            self.captureSession.startRunning()
+        })
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     override var prefersStatusBarHidden: Bool {
         return true

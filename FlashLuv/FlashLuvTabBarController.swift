@@ -21,21 +21,21 @@ class FlashLuvTabBarController: UITabBarController {
         //let profileViewController = ProfileViewController()
         //profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(), tag: 1)
         
-        let userConnectedProfileViewController = UserConnectedProfileViewController()
-        userConnectedProfileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(), tag: 1)
+        let userConnectedProfileViewController = UINavigationController(rootViewController : UserConnectedProfileViewController())
+        let userConnectedTabBarImage = UIImage(named: "ic_account")
+        userConnectedProfileViewController.tabBarItem = UITabBarItem(title: "Profile", image: userConnectedTabBarImage, tag: 1)
         
-        let photoViewController = PhotoViewController()
-        photoViewController.tabBarItem = UITabBarItem(title: "Scan", image: UIImage(), tag: 2)
+        let photoViewController = UINavigationController(rootViewController :PhotoViewController())
+        let photoTabBarImage = UIImage(named: "ic_qr_code")
+        photoViewController.tabBarItem = UITabBarItem(title: "Scan", image: photoTabBarImage, tag: 2)
         
-        let viewControllerList = [ userConnectedProfileViewController,photoViewController]
+        let viewControllerList = [userConnectedProfileViewController,photoViewController]
         viewControllers = viewControllerList
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Public profile", style: .plain, target: self, action: #selector(seePublicProfile))
-        checkIfUserIsLoggedIn()
+        
     }
     
     @objc func seePublicProfile(){
-       navigationController?.pushViewController(ProfileViewController(), animated: true)
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     func checkIfUserIsLoggedIn(){

@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                        consumerSecret:TWITTER_CONSUMER_SECRET)
         
         window = UIWindow(frame : UIScreen.main.bounds)
-        window?.rootViewController =  UINavigationController(rootViewController:FlashLuvTabBarController())
+        window?.rootViewController = FlashLuvTabBarController()
         
         
         window?.makeKeyAndVisible()

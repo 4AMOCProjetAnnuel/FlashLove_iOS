@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import GoogleSignIn
 
 class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
@@ -236,7 +237,33 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         }, withCancel: nil)
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.barTintColor = .green
+        navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Public profile", style: .plain, target: self, action: #selector(seePublicProfile))
+        checkIfUserIsLoggedIn()
+    }
+    
+    func checkIfUserIsLoggedIn(){
+        if Auth.auth().currentUser?.uid == nil{
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        }
+    }
+    
+    @objc func handleLogout(){
+        
+        do {
+            GIDSignIn.sharedInstance().signOut()
+            try Auth.auth().signOut()
+            let loginViewController = LoginViewController()
+            present(loginViewController, animated: true, completion: nil)
+        }catch let signoutError {
+            print(signoutError)
+        }
+        
+    }
+    
+    @objc func seePublicProfile(){
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     //TextView
