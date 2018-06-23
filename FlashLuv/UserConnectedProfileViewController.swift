@@ -197,6 +197,10 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
                 self.emailTextView.text = userFieldDictionnary["email"] as? String
                 self.ageTextField.text = userFieldDictionnary["age"] as? String
                 self.descriptionTextView.text = userFieldDictionnary["description"] as? String
+                guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.profileImageView.downloadedFrom(link: link)
             }
         }, withCancel: nil)
     }
@@ -212,10 +216,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
         let usersReference = ref.child("users").child(uid)
         //let values = ["name" : name, "email": email , "age": 10] as [String : Any]
-        let values = ["uid": uid,"displayName" : name, "email": email, "single" : false, "description" :self.descriptionTextView.text,"age" : self.ageTextField.text,"picture" : "","profileCompleted" : false,"photoUrl": "",
-                      "views": 0,
-                      "likes": 0,
-                      "flirts":0
+        let values = ["uid": uid,"displayName" : name, "email": email, "single" : false, "description" :self.descriptionTextView.text,"age" : self.ageTextField.text,"picture" : "","profileCompleted" : false
             ] as [String : Any]
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             if err != nil {

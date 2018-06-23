@@ -12,6 +12,7 @@ import FirebaseAuthUI
 import TwitterKit
 //import FBSDKCoreKit
 import GoogleSignIn
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     let TWITTER_CONSUMER_SECRET = "PrSOruBotAoVtSmgoT4sJLdYfIbXmS9zvRLL6EBbztoVdSSw2D"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch
         FirebaseApp.configure()
         
@@ -33,7 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                        consumerSecret:TWITTER_CONSUMER_SECRET)
         
         window = UIWindow(frame : UIScreen.main.bounds)
-        window?.rootViewController = FlashLuvTabBarController()
+        if Auth.auth().currentUser?.uid == nil {
+            window?.rootViewController = LoginViewController()
+        }else{
+            window?.rootViewController = FlashLuvTabBarController()
+        }
+        
         
         
         window?.makeKeyAndVisible()
@@ -87,7 +95,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Connecté avec cet uid", uid)
             let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
-            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email]
+            let imageUrl = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400).absoluteString
+            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl]
                         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)
@@ -96,7 +105,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 //self.dismiss(animated: true, completion: nil)
                 print("User saved")
             })
-            self.window?.rootViewController =  UINavigationController(rootViewController:FlashLuvTabBarController())
+            //self.window?.rootViewController =  UINavigationController(rootViewController:FlashLuvTabBarController())
+            self.window?.rootViewController =  FlashLuvTabBarController()
         }
     }
     

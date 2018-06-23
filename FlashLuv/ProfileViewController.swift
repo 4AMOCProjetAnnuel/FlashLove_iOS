@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
     let buttonStackView : UIStackView = {
        let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.tintColor = UIColor().getPrimaryPinkDark()
         stackView.backgroundColor = .clear
         return stackView
     }()
@@ -72,8 +73,10 @@ class ProfileViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
         button.setTitle("Like", for: .normal)
-        button.tintColor = .darkGray
+        button.tintColor = UIColor().getPrimaryPinkDark()
         button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.setImage(UIImage(named: "thumbs_up"), for: .normal)
+        button.imageView?.tintColor = UIColor().getPrimaryPinkDark()
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.darkGray.cgColor
@@ -210,17 +213,17 @@ class ProfileViewController: UIViewController {
             if let userFieldDictionnary = snapshot.value as? [String: Any]{
                 self.navigationItem.title = userFieldDictionnary["displayName"] as? String
                 self.nameLabel.text = userFieldDictionnary["displayName"] as? String
-               // self.emailTextView.text = userFieldDictionnary["email"] as? String
-                //self.ageTextField.text = userFieldDictionnary["age"] as? String
                 self.descriptionLabel.text = userFieldDictionnary["description"] as? String
+                guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.profileImageView.downloadedFrom(link: link)
             }
         }, withCancel: nil)
     }
     
     
     @objc func chatLogController(){
-    
-       // navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
         navigationController?.pushViewController(UserConnectedProfileViewController(), animated: false)
     }
 }

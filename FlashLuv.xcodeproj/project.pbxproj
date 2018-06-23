@@ -14,6 +14,7 @@
 		5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390020809AC800A16A95 /* LaunchScreen.storyboard */; };
 		5A714EA420D3E70E00A785EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A714EA320D3E70E00A785EB /* GoogleService-Info.plist */; };
 		5AA09B4020D69855001BBAA5 /* FlashLuvTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */; };
+		5ACFD96220DE360900555700 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACFD96120DE360900555700 /* Extensions.swift */; };
 		5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F8192095F3D3008E7027 /* LoginViewController.swift */; };
 		5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */; };
 		5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AED52A920D3D27500A36D7A /* PhotoViewController.swift */; };
@@ -35,6 +36,7 @@
 		5A714EA320D3E70E00A785EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashLuvTabBarController.swift; sourceTree = "<group>"; };
 		5AB9A9522097417C00931D63 /* FlashLuv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashLuv.entitlements; sourceTree = "<group>"; };
+		5ACFD96120DE360900555700 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5AE0F8192095F3D3008E7027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewController.swift; sourceTree = "<group>"; };
 		5AED52A920D3D27500A36D7A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				7A230D762090BDD200191637 /* fonts */,
 				5AED52A920D3D27500A36D7A /* PhotoViewController.swift */,
 				5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */,
+				5ACFD96120DE360900555700 /* Extensions.swift */,
 			);
 			path = FlashLuv;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -283,6 +287,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -307,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A202CA220B44E6D00933C7D /* UserConnectedProfileViewController.swift in Sources */,
+				5ACFD96220DE360900555700 /* Extensions.swift in Sources */,
 				7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */,
 				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
 				5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */,
@@ -454,10 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -474,10 +477,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

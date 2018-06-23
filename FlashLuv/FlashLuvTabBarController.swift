@@ -22,11 +22,11 @@ class FlashLuvTabBarController: UITabBarController {
         //profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(), tag: 1)
         
         let userConnectedProfileViewController = UINavigationController(rootViewController : UserConnectedProfileViewController())
-        let userConnectedTabBarImage = UIImage(named: "ic_account")
+        let userConnectedTabBarImage = UIImage(named: "user_male")
         userConnectedProfileViewController.tabBarItem = UITabBarItem(title: "Profile", image: userConnectedTabBarImage, tag: 1)
         
         let photoViewController = UINavigationController(rootViewController :PhotoViewController())
-        let photoTabBarImage = UIImage(named: "ic_qr_code")
+        let photoTabBarImage = UIImage(named: "qr_code")
         photoViewController.tabBarItem = UITabBarItem(title: "Scan", image: photoTabBarImage, tag: 2)
         
         let viewControllerList = [userConnectedProfileViewController,photoViewController]
