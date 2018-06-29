@@ -242,6 +242,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         
     }
     
+    
     func setupNavigationController(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in

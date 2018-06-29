@@ -124,7 +124,13 @@ class PhotoViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             print(snapshot.exists())
             if (snapshot.exists()){
                 profileViewController.uid = uid
+                if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                    guard let counter = userFieldDictionnary["views"] as? Int else {
+                        return
+                    }
+                    self.updateViewCount(uid: uid, counter)
                 self.navigationController?.pushViewController(profileViewController, animated: true)
+                }
             }else{
                 self.setupAlert()
             }
@@ -135,6 +141,22 @@ class PhotoViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             }
         }
         
+    }
+    
+    func updateViewCount(uid : String, _ currentNumberOfViews: Int){
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        let counter = currentNumberOfViews + 1
+        let values = ["views" : counter] as [String : Any]
+       
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+
+            print("User Modified")
+        })
     }
     func setupAlert(){
         let alert = UIAlertController(title: "Erreur", message: "L'utilisateur n'existe pas", preferredStyle: .alert)

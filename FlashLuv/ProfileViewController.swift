@@ -167,6 +167,8 @@ class ProfileViewController: UIViewController {
     }()
     
     var uid : String? = String()
+    var numberOflikes : Int? = Int()
+    var isLiked : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -308,6 +310,7 @@ class ProfileViewController: UIViewController {
                 guard let likes = userFieldDictionnary["likes"] as? Int else {
                     return
                 }
+                self.numberOflikes = likes
                 self.numberOfLikeLabel.text = "\(likes)"
                 guard let ageInt = userFieldDictionnary["age"] as? Int else {
                     return
@@ -330,6 +333,37 @@ class ProfileViewController: UIViewController {
         }, withCancel: nil)
     }
     
+    func updateViewCount(uid : String, _ currentNumberOfLikes: Int){
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        
+        if (isLiked){
+            let counter = currentNumberOfLikes - 1
+            let values = ["likes" : counter] as [String : Any]
+            
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+                self.isLiked = !self.isLiked
+                print("User Modified")
+            })
+        }else{
+            let counter = currentNumberOfLikes + 1
+            let values = ["likes" : counter] as [String : Any]
+            
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+                self.isLiked = !self.isLiked
+                print("User Modified")
+            })
+        }
+        
+    }
     
     @objc func chatLogController(){
         navigationController?.pushViewController(UserConnectedProfileViewController(), animated: false)
