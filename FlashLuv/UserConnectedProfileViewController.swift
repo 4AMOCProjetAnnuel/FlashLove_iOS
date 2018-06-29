@@ -253,8 +253,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Public profile", style: .plain, target: self, action: #selector(seePublicProfile))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(wifiConfiguration))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "shutdown"), style: .plain, target: self, action: #selector(handleLogout))
         checkIfUserIsLoggedIn()

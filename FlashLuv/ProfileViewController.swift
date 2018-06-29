@@ -33,6 +33,17 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let mailLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "ismadia09@gmail.com"
+        label.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+        label.textColor = .white
+        label.textAlignment = .left
+        label.font = UIFont(name: "Lato-Bold", size: 16)
+        return label
+    }()
+    
     let locationLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,21 +77,6 @@ class ProfileViewController: UIViewController {
         return imageView
     }()
     
-    let likeButton : UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .clear
-        button.setTitle("Like", for: .normal)
-        button.tintColor = UIColor().getPrimaryPinkDark()
-        button.setTitleColor(UIColor.darkGray, for: .normal)
-        button.setImage(UIImage(named: "thumbs_up"), for: .normal)
-        button.imageView?.tintColor = UIColor().getPrimaryPinkDark()
-        button.layer.cornerRadius = 4
-        button.layer.borderWidth = 0.2
-        button.layer.borderColor = UIColor.darkGray.cgColor
-        return button
-    }()
-    
     let chatButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -104,11 +100,64 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let numberOfViewContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let numberOfViewImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "visible")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor().getPrimaryPinkDark()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let numberOfViewLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "10000"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    let likeContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let numberOfLikeLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "10000"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    let likeButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        let origImage = UIImage(named: "thumbs_up")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        button.setImage(tintedImage, for: .normal)
+        button.imageView?.tintColor = UIColor().getPrimaryPinkDark()
+        return button
+    }()
+    
     let quizzButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor().getPrimaryPinkDark()
-        button.setTitle("Réponde au Quizz", for: .normal)
+        button.setTitle("Répondre au Quizz", for: .normal)
         button.tintColor = .white
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 4
@@ -150,6 +199,7 @@ class ProfileViewController: UIViewController {
         
         scrollView.addSubview(profileImageView)
         scrollView.addSubview(situationLabel)
+        scrollView.addSubview(mailLabel)
         scrollView.addSubview(nameLabel)
         scrollView.addSubview(locationLabel)
         scrollView.addSubview(buttonStackView)
@@ -165,9 +215,13 @@ class ProfileViewController: UIViewController {
         profileImageView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         profileImageView.contentMode = .scaleAspectFit
         
-        situationLabel.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: -10).isActive = true
+        mailLabel.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 0).isActive = true
+        mailLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 0).isActive = true
+        mailLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -view.frame.width/2.5).isActive = true
+        situationLabel.bottomAnchor.constraint(equalTo: mailLabel.topAnchor, constant: 0).isActive = true
         situationLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 0).isActive = true
         situationLabel.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -view.frame.width/2).isActive = true
+        
         
 
         nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 10).isActive = true
@@ -181,6 +235,7 @@ class ProfileViewController: UIViewController {
         buttonStackView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 10).isActive = true
         buttonStackView.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
         buttonStackView.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
+        buttonStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         descriptionLabel.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: profileImageView.leadingAnchor, constant: 20).isActive = true
@@ -192,8 +247,35 @@ class ProfileViewController: UIViewController {
         quizzButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: -20).isActive = true
         
         
-        buttonStackView.addArrangedSubview(likeButton)
-        buttonStackView.addArrangedSubview(chatButton)
+       
+       // buttonStackView.addArrangedSubview(chatButton)
+        numberOfViewContainer.addSubview(numberOfViewImageView)
+        numberOfViewContainer.addSubview(numberOfViewLabel)
+        
+        numberOfViewImageView.topAnchor.constraint(equalTo: numberOfViewContainer.topAnchor, constant: 0).isActive = true
+        numberOfViewImageView.leadingAnchor.constraint(equalTo: numberOfViewContainer.leadingAnchor, constant: 0).isActive = true
+        numberOfViewImageView.trailingAnchor.constraint(equalTo: numberOfViewContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.topAnchor.constraint(equalTo: numberOfViewImageView.bottomAnchor, constant: 0).isActive = true
+        numberOfViewLabel.trailingAnchor.constraint(equalTo: numberOfViewImageView.trailingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.leadingAnchor.constraint(equalTo: numberOfViewImageView.leadingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.bottomAnchor.constraint(equalTo: numberOfViewContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfViewLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        
+        likeContainer.addSubview(likeButton)
+        likeContainer.addSubview(numberOfLikeLabel)
+        
+        likeButton.topAnchor.constraint(equalTo: likeContainer.topAnchor, constant: 0).isActive = true
+        likeButton.leadingAnchor.constraint(equalTo: likeContainer.leadingAnchor, constant: 0).isActive = true
+        likeButton.trailingAnchor.constraint(equalTo: likeContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.trailingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.leadingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.bottomAnchor.constraint(equalTo: likeContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        buttonStackView.addArrangedSubview(numberOfViewContainer)
+        buttonStackView.addArrangedSubview(likeContainer)
     
         buttonStackView.distribution = .fillEqually
         buttonStackView.spacing = 15
@@ -205,6 +287,7 @@ class ProfileViewController: UIViewController {
     
     @objc func goToQuizz(){
         let quizzController = QuizzAnswerViewController()
+        quizzController.uid = uid
         self.navigationController?.pushViewController(quizzController, animated: true)
     }
     
@@ -217,6 +300,28 @@ class ProfileViewController: UIViewController {
                 self.navigationItem.title = userFieldDictionnary["displayName"] as? String
                 self.nameLabel.text = userFieldDictionnary["displayName"] as? String
                 self.descriptionLabel.text = userFieldDictionnary["description"] as? String
+                self.mailLabel.text = userFieldDictionnary["email"] as? String
+                guard let views = userFieldDictionnary["views"] as? Int else {
+                    return
+                }
+                self.numberOfViewLabel.text = "\(views)"
+                guard let likes = userFieldDictionnary["likes"] as? Int else {
+                    return
+                }
+                self.numberOfLikeLabel.text = "\(likes)"
+                guard let ageInt = userFieldDictionnary["age"] as? Int else {
+                    return
+                }
+                let ageString = "\(ageInt) ans"
+                if (userFieldDictionnary["single"] as? Bool)! {
+                    var celibataire = "Célibataire, "
+                    celibataire.append(ageString)
+                    self.situationLabel.text = celibataire
+                }else {
+                    var couple = "En couple, "
+                    couple.append(ageString)
+                    self.situationLabel.text = couple
+                }
                 guard let link = userFieldDictionnary["photoUrl"] as? String else {
                     return
                 }
