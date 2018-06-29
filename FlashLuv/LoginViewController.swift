@@ -151,6 +151,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
     
     func setupGoogleSignInButton(){
         let googleSignInButton = GIDSignInButton()
+        //googleSignInButton.addTarget(self, action: #selector(callSignInGoogle), for: .touchUpInside)
         googleSignInButton.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(googleSignInButton)
         googleSignInButton.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 20).isActive = true
@@ -163,6 +164,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInUIDel
         GIDSignIn.sharedInstance().signIn()
         GIDSignIn.sharedInstance().signOut()
     }
+    
+    @objc func callSignInGoogle(){
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
     var inputsContainerViewHeightAnchor : NSLayoutConstraint?
     
     

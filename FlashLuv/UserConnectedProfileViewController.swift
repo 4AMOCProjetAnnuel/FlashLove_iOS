@@ -17,7 +17,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     let nameLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Jhéne Colombo"
         label.backgroundColor = .clear
         label.textAlignment = .center
         label.font = UIFont(name: "Lato-Bold", size: 22)
@@ -27,7 +26,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     let locationLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Paris, France"
         label.backgroundColor = .clear
         label.textAlignment = .center
         label.font = UIFont(name: "Lato-Regular", size: 18)
@@ -51,7 +49,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     let profileImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .darkGray
-        imageView.image = UIImage(named: "jhene")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         
@@ -102,8 +99,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         let label = UITextField()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .clear
-        //label.isEditable = true
-        //label.text = "23"
         label.placeholder = "Age"
         label.font = UIFont(name: "Lato-Regular", size: 18)
         label.textAlignment = .center
@@ -174,6 +169,20 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         return button
     }()
     
+    let setupQuizzButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor().getPrimaryPinkDark()
+        button.setTitle("Configurer votre Quizz", for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 0.2
+        button.layer.borderColor = UIColor.white.cgColor
+        return button
+    }()
+    
+    
     var userName = "User profile"
     
     override func viewDidLoad() {
@@ -182,6 +191,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         ageTextField.delegate = self
         descriptionTextView.delegate = self
         registerProfileInfoButton.addTarget(self, action: #selector(setUserInfoInDatabase), for: .touchUpInside)
+        setupQuizzButton.addTarget(self, action: #selector(setupQuizz), for: .touchUpInside)
         setupNavigationController()
         setupLayout()
         getUserInfoFromFirebase()
@@ -205,6 +215,10 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         }, withCancel: nil)
     }
     
+    @objc func setupQuizz(){
+        let quizzConfigurationViewController = QuizzConfigurationViewController()
+        self.navigationController?.pushViewController(quizzConfigurationViewController, animated: true)
+    }
     @objc func setUserInfoInDatabase() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard
@@ -239,8 +253,10 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Public profile", style: .plain, target: self, action: #selector(seePublicProfile))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(wifiConfiguration))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "shutdown"), style: .plain, target: self, action: #selector(handleLogout))
         checkIfUserIsLoggedIn()
     }
     
@@ -248,6 +264,11 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         if Auth.auth().currentUser?.uid == nil{
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         }
+    }
+    
+    @objc func wifiConfiguration(){
+        let wifiConfigurationViewController = WifiConfigurationViewController()
+        self.navigationController?.pushViewController(wifiConfigurationViewController, animated: true)
     }
     
     @objc func handleLogout(){
@@ -312,6 +333,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         scrollView.addSubview(emailTextView)
         scrollView.addSubview(ageTextField)
         scrollView.addSubview(descriptionTextView)
+        scrollView.addSubview(setupQuizzButton)
         scrollView.addSubview(registerProfileInfoButton)
         
         
@@ -356,7 +378,13 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         descriptionTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 250).isActive = true
         
-        registerProfileInfoButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 10).isActive = true
+        setupQuizzButton.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 10).isActive = true
+        //setupQuizzButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
+        setupQuizzButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        setupQuizzButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        setupQuizzButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        registerProfileInfoButton.topAnchor.constraint(equalTo: setupQuizzButton.bottomAnchor, constant: 10).isActive = true
         registerProfileInfoButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
         registerProfileInfoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         registerProfileInfoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -383,8 +411,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         profileVisitsNumberImageView.centerXAnchor.constraint(equalTo: profileVisitsNumberContainerView.centerXAnchor).isActive = true
         profileVisitsNumberImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         profileVisitsNumberImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        
         
         profileVisitsNumberLabel.topAnchor.constraint(equalTo: profileVisitsNumberImageView.bottomAnchor, constant: 2).isActive = true
         profileVisitsNumberLabel.leadingAnchor.constraint(equalTo: profileVisitsNumberContainerView.leadingAnchor, constant: 20).isActive = true

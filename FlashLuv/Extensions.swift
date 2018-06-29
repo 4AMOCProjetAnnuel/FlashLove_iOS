@@ -8,6 +8,13 @@
 
 import Foundation
 import UIKit
+
+extension UIColor {
+    
+    func getPrimaryPinkDark() -> UIColor {
+        return UIColor(red: 198/255, green: 0/255, blue: 85/255, alpha: 1.0)
+    }
+}
 extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode

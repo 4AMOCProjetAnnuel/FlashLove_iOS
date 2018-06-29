@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
     let nameLabel : UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Jhéne Colombo"
         label.backgroundColor = .clear
         label.textAlignment = .center
         label.font = UIFont(name: "Lato-Bold", size: 22)
@@ -62,7 +61,6 @@ class ProfileViewController: UIViewController {
     let profileImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .darkGray
-        imageView.image = UIImage(named: "jhene")
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -100,7 +98,6 @@ class ProfileViewController: UIViewController {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .white
-        label.text = "Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. "
         label.numberOfLines = 0
         label.font = UIFont(name: "Lato-Regular", size: 18)
         label.textAlignment = .center
@@ -111,7 +108,7 @@ class ProfileViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor().getPrimaryPinkDark()
-        button.setTitle("Quizz", for: .normal)
+        button.setTitle("Réponde au Quizz", for: .normal)
         button.tintColor = .white
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 4
@@ -124,7 +121,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "shutdown"), style: .plain, target: self, action: #selector(handleLogout))
         setupLayout()
         getUserInfoFromFirebase()
 
@@ -202,7 +199,13 @@ class ProfileViewController: UIViewController {
         buttonStackView.spacing = 15
         
         chatButton.addTarget(self, action: #selector(chatLogController), for: .touchUpInside)
+        quizzButton.addTarget(self, action: #selector(goToQuizz), for: .touchUpInside)
 
+    }
+    
+    @objc func goToQuizz(){
+        let quizzController = QuizzAnswerViewController()
+        self.navigationController?.pushViewController(quizzController, animated: true)
     }
     
     func getUserInfoFromFirebase() {
