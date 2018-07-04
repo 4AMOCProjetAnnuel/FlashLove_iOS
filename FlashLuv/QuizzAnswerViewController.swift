@@ -19,6 +19,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var questionsTableView: UITableView!
     let cellId = "questionscell"
     var uid : String? = String()
+    var questions : [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsTableView.dataSource = self
@@ -54,40 +55,17 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                     return
                 }
                 self.quizzViewTitle.text = "Bienvenue sur le Quizz de \(displayName)"
-                /*self.nameLabel.text = userFieldDictionnary["displayName"] as? String
-                self.descriptionLabel.text = userFieldDictionnary["description"] as? String
-                self.mailLabel.text = userFieldDictionnary["email"] as? String
-                guard let views = userFieldDictionnary["views"] as? Int else {
+                guard let userQuestions = userFieldDictionnary["questions"] as? [String] else {
                     return
                 }
-                self.numberOfViewLabel.text = "\(views)"
-                guard let likes = userFieldDictionnary["likes"] as? Int else {
-                    return
-                }
-                self.numberOfLikeLabel.text = "\(likes)"
-                guard let ageInt = userFieldDictionnary["age"] as? Int else {
-                    return
-                }
-                let ageString = "\(ageInt) ans"
-                if (userFieldDictionnary["single"] as? Bool)! {
-                    var celibataire = "Célibataire, "
-                    celibataire.append(ageString)
-                    self.situationLabel.text = celibataire
-                }else {
-                    var couple = "En couple, "
-                    couple.append(ageString)
-                    self.situationLabel.text = couple
-                }
-                guard let link = userFieldDictionnary["photoUrl"] as? String else {
-                    return
-                }
-                self.profileImageView.downloadedFrom(link: link)*/
+                self.questions = userQuestions
+                self.questionsTableView.reloadData()
             }
         }, withCancel: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return questions.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -96,7 +74,14 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! QuestionsTableViewCell
+        guard let uid = uid else {return cell}
+        cell.uid = uid
+        cell.questionLabel.text = questions[indexPath.row]
+        //cell.questionLabel.text = uid
+        
+        
         return cell
     }
+    
 
 }
