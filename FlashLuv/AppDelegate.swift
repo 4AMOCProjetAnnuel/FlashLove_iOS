@@ -217,12 +217,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("print uid : \(url.lastPathComponent)")
         let uid = url.lastPathComponent
         let urlPath = url.deletingLastPathComponent().path
+        
         if (urlPath == "/user"){
             let profileViewController = ProfileViewController()
             profileViewController.uid = uid
-            window?.rootViewController?.present(profileViewController, animated: true, completion: nil)
+            let tabBar = FlashLuvTabBarController()
+            let test = UINavigationController(rootViewController: profileViewController)
+            //tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
+            window?.rootViewController?.present(tabBar, animated: false, completion: {
+                
+                //Ca marche mais je n'ai plus la tabBAr
+                //tabBar.selectedViewController?.present(test, animated: false, completion: nil)
+                
+                //Ca ne marche pas
+                //tabBar.seePublicProfile()
+                tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
+                //tabBar.addChildViewController(test)
+               // tabBar.selectedViewController?.navigationController?.pushViewController(test, animated: true)
+            })
+            
         }
-       //window?.makeKeyAndVisible()
     }
     
 }
