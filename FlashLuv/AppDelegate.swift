@@ -86,9 +86,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().handle(url,
                                           sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                           annotation: [:])
+        handleDeeplink(url: url)
         return false
     }
     
+
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
         // ...
         if error != nil {
@@ -207,6 +209,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Messaging.messaging().apnsToken = deviceToken
     }
     
+    func handleDeeplink(url : URL){
+        
+        print("url : \(url)")
+        print("url host : \(url.host)")
+        print("url path : \(url.path)")
+        print("print uid : \(url.lastPathComponent)")
+        let uid = url.lastPathComponent
+        let urlPath = url.deletingLastPathComponent().path
+        if (urlPath == "/user"){
+            let profileViewController = ProfileViewController()
+            profileViewController.uid = uid
+            window?.rootViewController?.present(profileViewController, animated: true, completion: nil)
+        }
+       //window?.makeKeyAndVisible()
+    }
+    
 }
 
 // [START ios_10_message_handling]
@@ -242,6 +260,15 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
         
+        guard let path = userInfo["path"] as? String else {
+            return
+        }
+        print(path)
+        
+        guard let urlFromPath = URL(string: path) else {
+            return
+        }
+        handleDeeplink(url: urlFromPath)
         // Print full message.
         print(userInfo)
         
@@ -267,6 +294,7 @@ extension AppDelegate : MessagingDelegate {
     }
     // [END ios_10_data_message]
 }
+
 
 
 
