@@ -15,6 +15,7 @@
                 <outlet property="questionsTableView" destination="un7-Nf-prJ" id="GqW-1S-AaG"/>
                 <outlet property="quizzDescription" destination="IdW-le-zBe" id="ebP-y7-99p"/>
                 <outlet property="quizzViewTitle" destination="sL7-IN-5d6" id="5RG-xc-riM"/>
+                <outlet property="saveButton" destination="PV4-V7-iIa" id="pke-hm-s9p"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,24 +37,33 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="un7-Nf-prJ">
-                    <rect key="frame" x="0.0" y="151.5" width="375" height="495.5"/>
+                    <rect key="frame" x="0.0" y="152" width="375" height="475"/>
                     <color key="backgroundColor" red="0.77737879750000005" green="0.002156153787" blue="0.33226287360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PV4-V7-iIa">
+                    <rect key="frame" x="25" y="637" width="325" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.77737879750000005" green="0.002156153787" blue="0.33226287360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="IdW-le-zBe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="AAU-ho-eyO"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="un7-Nf-prJ" secondAttribute="bottom" constant="20" id="Ay9-yL-QD0"/>
+                <constraint firstItem="PV4-V7-iIa" firstAttribute="top" secondItem="un7-Nf-prJ" secondAttribute="bottom" constant="10" id="BeR-qQ-UAR"/>
                 <constraint firstItem="sL7-IN-5d6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="E5e-fO-YFS"/>
                 <constraint firstItem="IdW-le-zBe" firstAttribute="top" secondItem="sL7-IN-5d6" secondAttribute="bottom" constant="20" id="H4f-w3-lAR"/>
+                <constraint firstItem="PV4-V7-iIa" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="IW4-Gi-wbL"/>
+                <constraint firstItem="PV4-V7-iIa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="25" id="VQ6-Qt-wf2"/>
                 <constraint firstAttribute="trailing" secondItem="IdW-le-zBe" secondAttribute="trailing" constant="50" id="XEE-3X-DyI"/>
                 <constraint firstItem="un7-Nf-prJ" firstAttribute="top" secondItem="IdW-le-zBe" secondAttribute="bottom" constant="30" id="YQX-hv-5Yw"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sL7-IN-5d6" secondAttribute="trailing" constant="50" id="YwS-Ks-t8i"/>
                 <constraint firstItem="sL7-IN-5d6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="fPt-c4-nys"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PV4-V7-iIa" secondAttribute="trailing" constant="25" id="u6M-Zq-ar9"/>
                 <constraint firstItem="un7-Nf-prJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="way-ON-VfX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="un7-Nf-prJ" secondAttribute="trailing" id="zsY-rk-DIR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-88.5" y="108.5"/>
         </view>
     </objects>
 </document>

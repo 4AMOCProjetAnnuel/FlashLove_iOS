@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+//import Messages
 
 class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -15,6 +16,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var quizzViewTitle: UILabel!
     @IBOutlet weak var quizzDescription: UILabel!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var questionsTableView: UITableView!
     let cellId = "questionscell"
@@ -43,6 +45,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         let descrptionFont = UIFont(name: "Lato-Bold", size: 17)
         quizzViewTitle.font = titleFont
         quizzDescription.font = descrptionFont
+        saveButton.addTarget(self, action: #selector(saveAnswers), for: .touchUpInside)
     }
     
     func getUserInfoFromFirebase() {
@@ -81,6 +84,11 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         
         
         return cell
+    }
+    
+    @objc func saveAnswers(){
+        let token = ""
+        //Messaging.messaging().sendMessage(<#T##message: [AnyHashable : Any]##[AnyHashable : Any]#>, to: <#T##String#>, withMessageID: "test", timeToLive: 1000)
     }
     
 

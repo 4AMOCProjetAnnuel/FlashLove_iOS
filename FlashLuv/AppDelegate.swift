@@ -10,8 +10,6 @@ import UIKit
 import UserNotifications
 import Firebase
 import FirebaseAuthUI
-import TwitterKit
-//import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
 
@@ -19,8 +17,6 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
-    let TWITTER_CONSUMER_KEY = "VfZ8WUCKsafBxWApoAdhoM3HU"
-    let TWITTER_CONSUMER_SECRET = "PrSOruBotAoVtSmgoT4sJLdYfIbXmS9zvRLL6EBbztoVdSSw2D"
     let gcmMessageIDKey = "gcm.message_id"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -33,9 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        //twitter
-        TWTRTwitter.sharedInstance().start(withConsumerKey:TWITTER_CONSUMER_KEY,
-                                       consumerSecret:TWITTER_CONSUMER_SECRET)
         
         window = UIWindow(frame : UIScreen.main.bounds)
         if Auth.auth().currentUser?.uid == nil {
@@ -56,9 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         UITabBar.appearance().tintColor = .white
         UITabBar.appearance().backgroundColor = UIColor().getPrimaryPinkDark()
         
+        // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
+        // [END set_messaging_delegate]
         // Register for remote notifications. This shows a permission dialog on first run, to
         // show the dialog at a more appropriate time move this registration accordingly.
+        // [START register_for_notifications]
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -67,8 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             UNUserNotificationCenter.current().requestAuthorization(
                 options: authOptions,
                 completionHandler: {_, _ in })
-            
-            
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -76,7 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
         
         application.registerForRemoteNotifications()
-
+        
+        // [END register_for_notifications]
         return true
     }
     
@@ -209,10 +204,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         print("APNs token retrieved: \(deviceToken)")
         
         // With swizzling disabled you must set the APNs token here.
-        // Messaging.messaging().apnsToken = deviceToken
+        //Messaging.messaging().apnsToken = deviceToken
     }
     
 }
+
 // [START ios_10_message_handling]
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
@@ -227,42 +223,29 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)");
+            print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo);
-        let path = String(describing:userInfo["path"]);
-        
-        /*let url = NSURL.init(string:path);
-        if(url != nil) {
-            self.endpoint = url! as URL!;
-            self.executeEndpoint()
-        }*/
+        print(userInfo)
         
         // Change this to your preferred presentation option
-        completionHandler([]);
+        completionHandler([])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo;
+        let userInfo = response.notification.request.content.userInfo
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)");
+            print("Message ID: \(messageID)")
         }
-        let path = String(describing:userInfo["path"]);
-        
-        /*let url = NSURL.init(string:path);
-        if(url != nil) {
-            self.endpoint = url! as URL!;
-        }*/
-        
         
         // Print full message.
-        print(userInfo);
-        completionHandler();
+        print(userInfo)
+        
+        completionHandler()
     }
 }
 // [END ios_10_message_handling]
@@ -271,10 +254,6 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        
-        let token = InstanceID.instanceID().token()
-        
-        
         
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
@@ -288,6 +267,7 @@ extension AppDelegate : MessagingDelegate {
     }
     // [END ios_10_data_message]
 }
+
 
 
 
