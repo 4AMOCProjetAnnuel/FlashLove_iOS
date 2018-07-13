@@ -422,6 +422,8 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     @objc func chatLogController(){
         
         // navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+        //CustomNotifications.sendNotication(fcmToken: "eVr25vQbZtY:APA91bEqHZOrryzzzHi9pwJakR11ToZeK2hgRrzx_pSSHbAHd_e4QRdoPKS8Hce8ma65xg1J7dDFMYtixwbuT4r5fHR9BlN6QYcKBeYLNcIh7rMMi0KINjivwFlO3dg2yPXOswHWummv", uid: "RWVkt3kbU4UKaovuNLw90lSUgBx2")
+        //CustomNotifications.sendNotication(fcmToken: "fKBq7XcM3rE:APA91bEUZTfiIPbYNYFMXkqnd-Kl_Xwg2u5SwoSoOEXa9ui-UJWefDV7lYqat43sZU5RQmw5vlHFB4Smi_qSQ0oP0LoV7401cdR0uWC8cKGKl7BlwQWBZRtF5xHns2HCUOJQZyPgosfTzPXvje_ns37XaIabQaODzw", uid: "CcoWmeyrVOdetjH1rcwXiEduGYG3", from: "flash")
     }
     
     @objc func keyboardDismiss(){

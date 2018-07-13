@@ -87,8 +87,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func saveAnswers(){
-        let token = ""
-        //Messaging.messaging().sendMessage(<#T##message: [AnyHashable : Any]##[AnyHashable : Any]#>, to: <#T##String#>, withMessageID: "test", timeToLive: 1000)
+        
     }
     
 

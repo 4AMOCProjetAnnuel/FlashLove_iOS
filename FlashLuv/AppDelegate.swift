@@ -86,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().handle(url,
                                           sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                           annotation: [:])
-        handleDeeplink(url: url)
+        //handleDeeplink(url: url)
         return false
     }
     
@@ -209,34 +209,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Messaging.messaging().apnsToken = deviceToken
     }
     
-    func handleDeeplink(url : URL){
-        
-        print("url : \(url)")
-        print("url host : \(url.host)")
-        print("url path : \(url.path)")
-        print("print uid : \(url.lastPathComponent)")
-        let uid = url.lastPathComponent
-        let urlPath = url.deletingLastPathComponent().path
-        
-        if (urlPath == "/user"){
+    func handleDeeplink(title : String, uid : String){
+        if (title == "Flash Alert"){
             let profileViewController = ProfileViewController()
             profileViewController.uid = uid
             let tabBar = FlashLuvTabBarController()
-            let test = UINavigationController(rootViewController: profileViewController)
-            //tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
             window?.rootViewController?.present(tabBar, animated: false, completion: {
-                
-                //Ca marche mais je n'ai plus la tabBAr
-                //tabBar.selectedViewController?.present(test, animated: false, completion: nil)
-                
-                //Ca ne marche pas
-                //tabBar.seePublicProfile()
                 tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
-                //tabBar.addChildViewController(test)
-               // tabBar.selectedViewController?.navigationController?.pushViewController(test, animated: true)
             })
             
         }
+        if (title == "Quiz Alert"){
+            print(title)
+        }
+        
     }
     
 }
@@ -250,6 +236,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
+        
         
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
@@ -269,20 +256,20 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
+        let notificationBody = response.notification.request.content.body
+        let notificationTitle = response.notification.request.content.title
+        print(notificationTitle)
+        print(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
-        guard let path = userInfo["path"] as? String else {
+        guard let userId = userInfo["userId"] as? String else {
             return
         }
-        print(path)
-        
-        guard let urlFromPath = URL(string: path) else {
-            return
-        }
-        handleDeeplink(url: urlFromPath)
+    
+        handleDeeplink(title : notificationTitle, uid : userId)
         // Print full message.
         print(userInfo)
         
@@ -295,6 +282,20 @@ extension AppDelegate : MessagingDelegate {
     // [START refresh_token]
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        //let values = ["name" : name, "email": email , "age": 10] as [String : Any]
+        let values = ["fcmToken" : fcmToken] as [String : Any]
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            print("User Modified")
+        })
         
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.

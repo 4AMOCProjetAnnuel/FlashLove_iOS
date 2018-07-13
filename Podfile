@@ -25,5 +25,6 @@ pod 'FirebaseUI/Twitter'
 pod 'FirebaseUI/Phone'
 
 pod 'IQKeyboardManagerSwift'
+pod 'Alamofire', '~> 4.7'
 
 end

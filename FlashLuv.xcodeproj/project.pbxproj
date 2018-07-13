@@ -18,6 +18,7 @@
 		5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F8192095F3D3008E7027 /* LoginViewController.swift */; };
 		5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */; };
 		5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AED52A920D3D27500A36D7A /* PhotoViewController.swift */; };
+		5AF0E5C720F68F7B006D084A /* CustomNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */; };
 		5AFA004B20E61414006EE3D5 /* WifiConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA004920E61413006EE3D5 /* WifiConfigurationViewController.swift */; };
 		5AFA004C20E61414006EE3D5 /* WifiConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA004A20E61413006EE3D5 /* WifiConfigurationViewController.xib */; };
 		5AFA004F20E620EF006EE3D5 /* QuizzConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */; };
@@ -48,6 +49,7 @@
 		5AE0F8192095F3D3008E7027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewController.swift; sourceTree = "<group>"; };
 		5AED52A920D3D27500A36D7A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotifications.swift; sourceTree = "<group>"; };
 		5AFA004920E61413006EE3D5 /* WifiConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConfigurationViewController.swift; sourceTree = "<group>"; };
 		5AFA004A20E61413006EE3D5 /* WifiConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WifiConfigurationViewController.xib; sourceTree = "<group>"; };
 		5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				5AFA005820E63388006EE3D5 /* QuestionsTableViewCell.xib */,
 				5AFA005120E62FBC006EE3D5 /* QuizzAnswerViewController.swift */,
 				5AFA005220E62FBC006EE3D5 /* QuizzAnswerViewController.xib */,
+				5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */,
 			);
 			path = FlashLuv;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -314,6 +318,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -350,6 +355,7 @@
 				7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */,
 				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
 				5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */,
+				5AF0E5C720F68F7B006D084A /* CustomNotifications.swift in Sources */,
 				5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */,
 				5AFA005920E63388006EE3D5 /* QuestionsTableViewCell.swift in Sources */,
 				5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */,
@@ -499,10 +505,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -521,10 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

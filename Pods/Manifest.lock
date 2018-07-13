@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -156,6 +157,7 @@ PODS:
     - TwitterCore (>= 3.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - Bolts
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -173,6 +175,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
   FBSDKCoreKit: 55d7f2ac45d9c4b9b6119f4e43900fe84b9b7b1b
@@ -203,6 +206,6 @@ SPEC CHECKSUMS:
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: fbac837ffe2960b0cfff09f79d1800355d901a98
+PODFILE CHECKSUM: 81bda0701431518753c95b7ed1c0853e6a3bcbb2
 
 COCOAPODS: 1.4.0

@@ -129,6 +129,10 @@ class PhotoViewController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
                         return
                     }
                     self.updateViewCount(uid: uid, counter)
+                    guard let fcmToken = userFieldDictionnary["fcmToken"] as? String else {
+                        return
+                    }
+                    CustomNotifications.sendNotication(fcmToken: fcmToken, uid: uid, from: "flash")
                 self.navigationController?.pushViewController(profileViewController, animated: true)
                 }
             }else{
