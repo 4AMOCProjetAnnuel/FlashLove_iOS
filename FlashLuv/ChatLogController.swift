@@ -71,7 +71,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate {
     
     @objc func sendMessage(){
         sendButton.setTitleColor(UIColor.red, for: .normal)
-        let ref = Database.database().reference().child("messages")
+        let ref = Database.database().reference().child("conversations")
         let childRef = ref.childByAutoId()
         let values = ["text" : inputTextField.text, "name" : "Jhéné Colombo"] as [String : Any]
         childRef.updateChildValues(values)

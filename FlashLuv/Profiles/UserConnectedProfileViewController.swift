@@ -55,7 +55,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         return imageView
     }()
     
-    let likeButton : UIButton = {
+    /*let likeButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .clear
@@ -66,7 +66,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         button.layer.borderWidth = 0.2
         button.layer.borderColor = UIColor.darkGray.cgColor
         return button
-    }()
+    }()*/
     
     let chatButton : UIButton = {
         let button = UIButton()
@@ -182,7 +182,58 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         return button
     }()
     
+    let numberOfViewContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
     
+    let numberOfViewImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "visible")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor().getPrimaryPinkDark()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let numberOfViewLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    let likeContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let numberOfLikeLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    let likeButton : UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        let origImage = UIImage(named: "thumbs_up")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        button.setImage(tintedImage, for: .normal)
+        button.imageView?.tintColor = UIColor().getPrimaryPinkDark()
+        return button
+    }()
     var userName = "User profile"
     
     override func viewDidLoad() {
@@ -207,6 +258,14 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
                 self.emailTextView.text = userFieldDictionnary["email"] as? String
                 self.ageTextField.text = userFieldDictionnary["age"] as? String
                 self.descriptionTextView.text = userFieldDictionnary["description"] as? String
+                guard let views = userFieldDictionnary["views"] as? Int else {
+                    return
+                }
+                self.numberOfViewLabel.text = "\(views)"
+                guard let likes = userFieldDictionnary["likes"] as? Int else {
+                    return
+                }
+                self.numberOfLikeLabel.text = "\(likes)"
                 guard let link = userFieldDictionnary["photoUrl"] as? String else {
                     return
                 }
@@ -254,7 +313,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
-       // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(wifiConfiguration))
+       navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(chatLogController))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "shutdown"), style: .plain, target: self, action: #selector(handleLogout))
         checkIfUserIsLoggedIn()
     }
@@ -265,10 +324,6 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         }
     }
     
-    @objc func wifiConfiguration(){
-        let wifiConfigurationViewController = WifiConfigurationViewController()
-        self.navigationController?.pushViewController(wifiConfigurationViewController, animated: true)
-    }
     
     @objc func handleLogout(){
         
@@ -390,9 +445,37 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         registerProfileInfoButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         
-        buttonStackView.addArrangedSubview(setupProfileVisitsNumberView())
+        /*buttonStackView.addArrangedSubview(setupProfileVisitsNumberView())
         buttonStackView.addArrangedSubview(likeButton)
-        buttonStackView.addArrangedSubview(chatButton)
+        buttonStackView.addArrangedSubview(chatButton)*/
+        
+        numberOfViewContainer.addSubview(numberOfViewImageView)
+        numberOfViewContainer.addSubview(numberOfViewLabel)
+        
+        numberOfViewImageView.topAnchor.constraint(equalTo: numberOfViewContainer.topAnchor, constant: 0).isActive = true
+        numberOfViewImageView.leadingAnchor.constraint(equalTo: numberOfViewContainer.leadingAnchor, constant: 0).isActive = true
+        numberOfViewImageView.trailingAnchor.constraint(equalTo: numberOfViewContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.topAnchor.constraint(equalTo: numberOfViewImageView.bottomAnchor, constant: 0).isActive = true
+        numberOfViewLabel.trailingAnchor.constraint(equalTo: numberOfViewImageView.trailingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.leadingAnchor.constraint(equalTo: numberOfViewImageView.leadingAnchor, constant: 0).isActive = true
+        numberOfViewLabel.bottomAnchor.constraint(equalTo: numberOfViewContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfViewLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        
+        likeContainer.addSubview(likeButton)
+        likeContainer.addSubview(numberOfLikeLabel)
+        
+        likeButton.topAnchor.constraint(equalTo: likeContainer.topAnchor, constant: 0).isActive = true
+        likeButton.leadingAnchor.constraint(equalTo: likeContainer.leadingAnchor, constant: 0).isActive = true
+        likeButton.trailingAnchor.constraint(equalTo: likeContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.trailingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.leadingAnchor.constraint(equalTo: likeButton.leadingAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.bottomAnchor.constraint(equalTo: likeContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfLikeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        buttonStackView.addArrangedSubview(numberOfViewContainer)
+        buttonStackView.addArrangedSubview(likeContainer)
         
         buttonStackView.distribution = .fillEqually
         buttonStackView.spacing = 15
@@ -420,10 +503,13 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     }
     
     @objc func chatLogController(){
-        
-        // navigationController?.pushViewController(ChatLogController(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
-        //CustomNotifications.sendNotication(fcmToken: "eVr25vQbZtY:APA91bEqHZOrryzzzHi9pwJakR11ToZeK2hgRrzx_pSSHbAHd_e4QRdoPKS8Hce8ma65xg1J7dDFMYtixwbuT4r5fHR9BlN6QYcKBeYLNcIh7rMMi0KINjivwFlO3dg2yPXOswHWummv", uid: "RWVkt3kbU4UKaovuNLw90lSUgBx2")
-        //CustomNotifications.sendNotication(fcmToken: "fKBq7XcM3rE:APA91bEUZTfiIPbYNYFMXkqnd-Kl_Xwg2u5SwoSoOEXa9ui-UJWefDV7lYqat43sZU5RQmw5vlHFB4Smi_qSQ0oP0LoV7401cdR0uWC8cKGKl7BlwQWBZRtF5xHns2HCUOJQZyPgosfTzPXvje_ns37XaIabQaODzw", uid: "CcoWmeyrVOdetjH1rcwXiEduGYG3", from: "flash")
+        //let chatLgocontroller = ChatLogController(collectionViewLayout : UICollectionViewFlowLayout())
+        //navigationController?.pushViewController(chatLgocontroller, animated: true)
+        let quizTableViewController = QuizzAnswerViewController()
+        //quizTableViewController.uid = "TWF51CxJJrd11Y4Mf19ktbIRBhG3"
+        //quizTableViewController.uid = "ZnNOmgLFjWZWpooR7BSb04emyID2"
+        quizTableViewController.uid = "miv8L7WnmOeCQvfKGaqiJlx2nGX2"
+        navigationController?.pushViewController(quizTableViewController, animated: true)
     }
     
     @objc func keyboardDismiss(){

@@ -13,6 +13,7 @@ import GoogleSignIn
 class FlashLuvTabBarController: UITabBarController {
     let userConnectedProfileViewController = UINavigationController(rootViewController : UserConnectedProfileViewController())
     let photoViewController = UINavigationController(rootViewController :PhotoViewController())
+    let conversationsController = UINavigationController(rootViewController: ConversationsViewController())
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +31,10 @@ class FlashLuvTabBarController: UITabBarController {
         let photoTabBarImage = UIImage(named: "qr_code")
         photoViewController.tabBarItem = UITabBarItem(title: "Scan", image: photoTabBarImage, tag: 2)
         
-        let viewControllerList = [userConnectedProfileViewController,photoViewController]
+        let conversationsImage = UIImage(named: "qr_code")
+        conversationsController.tabBarItem = UITabBarItem(title: "Conversations", image: conversationsImage, tag: 3)
+        
+        let viewControllerList = [userConnectedProfileViewController,photoViewController,conversationsController]
         viewControllers = viewControllerList
         
     }

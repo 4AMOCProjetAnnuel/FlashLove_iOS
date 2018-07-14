@@ -87,7 +87,28 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func saveAnswers(){
-        
+        //sendButton.setTitleColor(UIColor.red, for: .normal)
+        let ref = Database.database().reference().child("conversations")
+        let childRef = ref.childByAutoId()
+        guard
+            let toId = uid,
+            let fromId = Auth.auth().currentUser?.uid else {return}
+        let timeStamp = Date().timeIntervalSince1970 as NSNumber
+        let values = ["text" : "test", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp ] as [String : Any]
+        //childRef.updateChildValues(values)
+        childRef.updateChildValues(values) { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            
+            let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
+            let conversationId = childRef.key
+            userConversationsRef.updateChildValues([conversationId : 1])
+            
+            let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
+            recipientUserConversationsRef.updateChildValues([conversationId : 1])
+        }
     }
     
 
