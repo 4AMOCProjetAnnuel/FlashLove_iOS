@@ -34,6 +34,9 @@
                         <segment title="Second"/>
                     </segments>
                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="indexChanged:" destination="-1" eventType="valueChanged" id="KjK-VG-Ufd"/>
+                    </connections>
                 </segmentedControl>
             </subviews>
             <color key="backgroundColor" red="0.77737879750000005" green="0.002156153787" blue="0.33226287360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

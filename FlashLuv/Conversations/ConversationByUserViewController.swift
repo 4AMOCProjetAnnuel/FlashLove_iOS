@@ -1,11 +1,10 @@
-//
+
 //  ConversationByUserViewController.swift
 //  FlashLuv
 //
 //  Created by Isma Dia on 14/07/2018.
 //  Copyright © 2018 Isma Dia. All rights reserved.
 //
-
 import UIKit
 import Firebase
 
@@ -17,14 +16,30 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
     let cellId = "byUser"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         conversationByUserTableView.delegate = self
         conversationByUserTableView.dataSource = self
         let nib = UINib(nibName: "ConversationByUserTableViewCell", bundle: nil)
         conversationByUserTableView.register(nib, forCellReuseIdentifier: cellId)
         observeConversation()
+        
     }
-
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch conversationSegmentedControl.selectedSegmentIndex {
+        case 0:
+            conversations.removeAll()
+            observeConversation()
+        //conversationByUserTableView.reloadData()
+        case 1:
+            conversations.removeAll()
+            observeConversation()
+        //conversationByUserTableView.reloadData()
+        case 2: observeConversation()
+        default:
+            print("bla")
+        }
+    }
     var conversations = [Conversation]()
     func observeConversation() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
@@ -44,7 +59,12 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
                     let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name)
                     print(conversation.conversationParnerId())
                     if conversation.conversationParnerId() == self.userId {
-                        self.conversations.append(conversation)
+                        if (self.conversationSegmentedControl.selectedSegmentIndex == 0 && conversation.fromId == Auth.auth().currentUser?.uid) {
+                            self.conversations.append(conversation)
+                        } else if (self.conversationSegmentedControl.selectedSegmentIndex == 1 && conversation.fromId != Auth.auth().currentUser?.uid) {
+                            self.conversations.append(conversation)
+                        }
+                        //self.conversations.append(conversation)
                         self.conversationByUserTableView.reloadData()
                     }
                     
@@ -79,5 +99,6 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
         return 90
     }
     
-
+    
 }
+
