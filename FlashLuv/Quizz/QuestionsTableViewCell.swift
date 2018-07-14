@@ -14,6 +14,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
     var questionId : String!
     var uid : String!
     var answer : String?
+    var conversationId : String?
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var registerAnswer: UIButton!
@@ -22,7 +23,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
         // Initialization code
         setupView()
         answerTextView.delegate = self
-        registerAnswer.addTarget(self, action: #selector(registerAnswerToFirebase), for: .touchUpInside)
+        registerAnswer.addTarget(self, action: #selector(setQuiz), for: .touchUpInside)
     }
 
     func textViewDidChange(textView: UITextView) {
@@ -44,14 +45,22 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
         print("register")
     }
     
-    func getAnswerFromFirebase() {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).child("questions").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            print(snapshot)
-            if let anwsersDictionnary = snapshot.value as? [String: Any]{
-               //self.questionLabel.text = anwsersDictionnary[questionId] as? String
+@objc func setQuiz() {
+        guard let id = self.conversationId else { return }
+        let conversationReference = Database.database().reference().child("conversations").child(id)
+        let quizReference = conversationReference.child("quiz").childByAutoId()
+        guard let question = questionLabel.text,
+            let reponse = answerTextView.text else {
+                return
+        }
+        let values = ["question": question, "reponse": reponse ] as [String : Any]
+        quizReference.updateChildValues(values) { (err, ref) in
+            if err != nil {
+                print(err)
+                return
             }
-        }, withCancel: nil)
+        }
+        
     }
     
 }

@@ -25,6 +25,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     var reponses : [String] = []
     var quiz : [String : String] = [:]
     var conversationId : String?
+    var newConversationId : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsTableView.dataSource = self
@@ -70,6 +71,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                 self.questionsTableView.reloadData()
             }
         }, withCancel: nil)
+        createConversation()
         }else {
             guard let id = self.conversationId else { return }
             let conversationReference = Database.database().reference().child("conversations").child(id)
@@ -117,6 +119,9 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         quiz[questions[indexPath.row]] = cell.answerTextView.text
         if (conversationId != nil){
             cell.answerTextView.text = reponses[indexPath.row]
+        }
+        if (newConversationId != nil) {
+            cell.conversationId = newConversationId
         }
         
         //cell.questionLabel.text = uid
@@ -169,6 +174,30 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             recipientUserConversationsRef.updateChildValues([conversationId : 1])
         }
 
-    
+    func createConversation() {
+        let ref = Database.database().reference().child("conversations")
+        let childRef = ref.childByAutoId()
+        guard
+            let toId = uid,
+            let fromId = Auth.auth().currentUser?.uid else {return}
+        let timeStamp = Date().timeIntervalSince1970 as NSNumber
+        let values = ["text" : "quiz", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : 50, "recordedHumidity" : 50, "recordedTemperature" : 50] as [String : Any]
+        
+        
+        childRef.updateChildValues(values) { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            
+        }
+        let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
+        let conversationId = childRef.key
+        userConversationsRef.updateChildValues([conversationId : 1])
+        
+        let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
+        recipientUserConversationsRef.updateChildValues([conversationId : 1])
+        newConversationId = conversationId
+    }
 
 }
