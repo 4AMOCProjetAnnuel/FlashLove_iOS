@@ -15,13 +15,20 @@ class Conversation: NSObject {
     var toId : String?
     var text : String?
     var name : String?
+    var recordedHeartBeat : Float? = 50
+    var recordedHumidity : Float? = 50
+    var recordedTemperature : Float? = 50
+    var quiz : [String : String]?
+    var conversationId : String?
+    
 
-    init( fromId : String, timestamp : NSNumber, toId : String, text : String, name : String) {
+    init( fromId : String, timestamp : NSNumber, toId : String, text : String, name : String, quiz : [String : String] ) {
         self.fromId = fromId
         self.timestamp = timestamp
         self.toId = toId
         self.text = text
         self.name = name
+        self.quiz = quiz
     }
     
     func conversationParnerId () -> String? {

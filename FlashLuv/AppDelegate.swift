@@ -265,7 +265,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             print("Message ID: \(messageID)")
         }
         
-        guard let userId = userInfo["userId"] as? String else {
+        guard let userId = userInfo["flashingUserId"] as? String else {
             return
         }
     

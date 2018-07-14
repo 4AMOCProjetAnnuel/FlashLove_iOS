@@ -9,10 +9,11 @@
 import UIKit
 import Firebase
 
-class QuestionsTableViewCell: UITableViewCell {
+class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
 
     var questionId : String!
     var uid : String!
+    var answer : String?
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var registerAnswer: UIButton!
@@ -20,10 +21,15 @@ class QuestionsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         setupView()
+        answerTextView.delegate = self
         registerAnswer.addTarget(self, action: #selector(registerAnswerToFirebase), for: .touchUpInside)
     }
 
-
+    func textViewDidChange(textView: UITextView) {
+        if (textView == answerTextView) {
+            answer = answerTextView.text
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

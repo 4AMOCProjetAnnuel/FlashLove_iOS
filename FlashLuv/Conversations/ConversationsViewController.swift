@@ -47,9 +47,9 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                         let name = dictionnary["name"] as? String else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name)
+                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
                     print(snapshot)
-                    //self.conversations.append(conversation)
+                    conversation.conversationId = snapshot.key
                     self.conversationsDictionnary[toId] = conversation
                     self.conversations = Array(self.conversationsDictionnary.values)
                     self.conversations.sort(by: { (conversation1, conversation2) -> Bool in
@@ -76,7 +76,8 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                     let name = dictionnary["name"] as? String else {
                         return
                 }
-                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name)
+                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
+                conversation.conversationId = snapshot.key
                 print(snapshot)
                 //self.conversations.append(conversation)
                 self.conversationsDictionnary[toId] = conversation

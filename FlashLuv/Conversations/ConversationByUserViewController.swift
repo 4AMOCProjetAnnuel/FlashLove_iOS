@@ -30,11 +30,9 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
         case 0:
             conversations.removeAll()
             observeConversation()
-        //conversationByUserTableView.reloadData()
         case 1:
             conversations.removeAll()
             observeConversation()
-        //conversationByUserTableView.reloadData()
         case 2: observeConversation()
         default:
             print("bla")
@@ -56,12 +54,12 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
                         let name = dictionnary["name"] as? String else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name)
-                    print(conversation.conversationParnerId())
+                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
+                   conversation.conversationId = conversationId
                     if conversation.conversationParnerId() == self.userId {
-                        if (self.conversationSegmentedControl.selectedSegmentIndex == 0 && conversation.fromId == Auth.auth().currentUser?.uid) {
+                        if (self.conversationSegmentedControl.selectedSegmentIndex == 1 && conversation.fromId == Auth.auth().currentUser?.uid) {
                             self.conversations.append(conversation)
-                        } else if (self.conversationSegmentedControl.selectedSegmentIndex == 1 && conversation.fromId != Auth.auth().currentUser?.uid) {
+                        } else if (self.conversationSegmentedControl.selectedSegmentIndex == 0 && conversation.fromId != Auth.auth().currentUser?.uid) {
                             self.conversations.append(conversation)
                         }
                         //self.conversations.append(conversation)
@@ -97,6 +95,14 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let quizzAnswerViewController = QuizzAnswerViewController()
+        let conversation = conversations[indexPath.row]
+        quizzAnswerViewController.uid = conversation.toId
+        quizzAnswerViewController.conversationId = conversation.conversationId
+        navigationController?.pushViewController(quizzAnswerViewController, animated: true)
     }
     
     

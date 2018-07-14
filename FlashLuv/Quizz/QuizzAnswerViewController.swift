@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 //import Messages
 
-class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
    
     
     
@@ -22,6 +22,9 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     let cellId = "questionscell"
     var uid : String? = String()
     var questions : [String] = []
+    var reponses : [String] = []
+    var quiz : [String : String] = [:]
+    var conversationId : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsTableView.dataSource = self
@@ -50,6 +53,8 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     
     func getUserInfoFromFirebase() {
         //guard let uid = Auth.auth().currentUser?.uid else {return}
+        
+        if (conversationId == nil) {
         guard let uid = uid else {return}
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             print(snapshot)
@@ -65,6 +70,35 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                 self.questionsTableView.reloadData()
             }
         }, withCancel: nil)
+        }else {
+            guard let id = self.conversationId else { return }
+            let conversationReference = Database.database().reference().child("conversations").child(id)
+            let quizReference = conversationReference.child("quiz")
+            quizReference.observe(.value, with: { (snapshot) in
+                print(snapshot)
+                if let dictionnary = snapshot.value as? [String : Any] {
+                    print(snapshot)
+                    for child in snapshot.children {
+                        let snap = child as! DataSnapshot
+                        let key = snap.key
+                        let value = snap.value
+                        print("key = \(key)  value = \(value!)")
+                        if let childDictionnary = value as? [String : Any] {
+                        guard let question = childDictionnary["question"] as? String,
+                            let reponse = childDictionnary["reponse"] as? String else {
+                                return
+                        }
+                        self.questions.append(question)
+                        self.reponses.append(reponse)
+                        self.questionsTableView.reloadData()
+                        }
+                    }
+                    
+                    
+                }
+            }, withCancel: nil)
+                    
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,11 +114,23 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         guard let uid = uid else {return cell}
         cell.uid = uid
         cell.questionLabel.text = questions[indexPath.row]
-        //cell.questionLabel.text = uid
+        quiz[questions[indexPath.row]] = cell.answerTextView.text
+        if (conversationId != nil){
+            cell.answerTextView.text = reponses[indexPath.row]
+        }
         
+        //cell.questionLabel.text = uid
+       cell.answerTextView.delegate = self
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! QuestionsTableViewCell
+        quiz[questions[indexPath.row]] = cell.answerTextView.text
+        print(quiz)
+        print("ehifhekjh")
+    }
+    
     
     @objc func saveAnswers(){
         //sendButton.setTitleColor(UIColor.red, for: .normal)
@@ -94,14 +140,27 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             let toId = uid,
             let fromId = Auth.auth().currentUser?.uid else {return}
         let timeStamp = Date().timeIntervalSince1970 as NSNumber
-        let values = ["text" : "test", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp ] as [String : Any]
-        //childRef.updateChildValues(values)
+        let values = ["text" : "quiz", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : 50, "recordedHumidity" : 50, "recordedTemperature" : 50] as [String : Any]
+        
+        
         childRef.updateChildValues(values) { (err, ref) in
             if err != nil {
                 print(err)
                 return
             }
             
+            }
+        for item in quiz {
+            let quizRef = childRef.child("quiz").childByAutoId()
+            let quizValues = ["question" : item.key  , "reponse" : item.value]
+            quizRef.updateChildValues(quizValues) { (err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+                
+            }
+        }
             let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
             let conversationId = childRef.key
             userConversationsRef.updateChildValues([conversationId : 1])
@@ -109,7 +168,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
             recipientUserConversationsRef.updateChildValues([conversationId : 1])
         }
-    }
+
     
 
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Firebase
 
 class CustomNotifications {
     let cloudMessagingKey = "AAAAB3Q73EI:APA91bGTGzl844pGXaMT4NdsFbgA0fmQmd_rF6N4G3LCsgQyEvWUGaYD0E12a329aeOO3snFLpUYfVR8Z9r9kLzjgh6KsqMODFPpAOLhJLaiB_MDPFW6dgHhHrIo9IC0f83fasdFFtsK"
@@ -31,7 +32,8 @@ class CustomNotifications {
                     "title": "Quiz Alert"
                 ],
                 "data" : [
-                    "userId" : "\(uid)"
+                    "flashedUserId" : "\(uid)",
+                    "flashingUserId" : Auth.auth().currentUser?.uid
                 ],
                 ]
         }else {
@@ -42,7 +44,8 @@ class CustomNotifications {
                     "title": "Flash Alert"
                 ],
                 "data" : [
-                    "userId" : "\(uid)"
+                    "flashedUserId" : "\(uid)",
+                    "flashingUserId" : Auth.auth().currentUser?.uid
                 ],
                 ]
         }
