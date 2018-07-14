@@ -234,6 +234,21 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         button.imageView?.tintColor = UIColor().getPrimaryPinkDark()
         return button
     }()
+    
+    let celibataireSwitch : UISwitch = {
+        let celibSwitch = UISwitch()
+        celibSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return celibSwitch
+    }()
+    
+    let celibataireLabel : UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Célibataire ?"
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        label.numberOfLines = 0
+        return label
+    }()
     var userName = "User profile"
     
     override func viewDidLoad() {
@@ -258,6 +273,10 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
                 self.emailTextView.text = userFieldDictionnary["email"] as? String
                 self.ageTextField.text = userFieldDictionnary["age"] as? String
                 self.descriptionTextView.text = userFieldDictionnary["description"] as? String
+                guard let single = userFieldDictionnary["single"] as? Bool else {
+                    return
+                }
+                self.celibataireSwitch.isOn = single
                 guard let views = userFieldDictionnary["views"] as? Int else {
                     return
                 }
@@ -289,7 +308,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
         let usersReference = ref.child("users").child(uid)
         //let values = ["name" : name, "email": email , "age": 10] as [String : Any]
-        let values = ["uid": uid,"displayName" : name, "email": email, "single" : false, "description" :self.descriptionTextView.text,"age" : self.ageTextField.text,"picture" : "","profileCompleted" : false
+        let values = ["uid": uid,"displayName" : name, "email": email, "single" : celibataireSwitch.isOn, "description" :self.descriptionTextView.text,"age" : self.ageTextField.text,"picture" : "","profileCompleted" : false
             ] as [String : Any]
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             if err != nil {
@@ -389,6 +408,8 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         scrollView.addSubview(descriptionTextView)
         scrollView.addSubview(setupQuizzButton)
         scrollView.addSubview(registerProfileInfoButton)
+        scrollView.addSubview(celibataireSwitch)
+        scrollView.addSubview(celibataireLabel)
         
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -414,7 +435,17 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         buttonStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        emailTextView.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
+        celibataireSwitch.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
+        celibataireSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        celibataireLabel.topAnchor.constraint(equalTo: buttonStackView.bottomAnchor, constant: 10).isActive = true
+        celibataireLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        ///celibataireLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        celibataireLabel.trailingAnchor.constraint(equalTo: celibataireSwitch.leadingAnchor, constant: 0)
+        
+      
+        
+        emailTextView.topAnchor.constraint(equalTo: celibataireSwitch.bottomAnchor, constant: 10).isActive = true
         //emailTextView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -10).isActive = true
         emailTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         emailTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -479,6 +510,9 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         
         buttonStackView.distribution = .fillEqually
         buttonStackView.spacing = 15
+        
+        
+        
         
         chatButton.addTarget(self, action: #selector(chatLogController), for: .touchUpInside)
         

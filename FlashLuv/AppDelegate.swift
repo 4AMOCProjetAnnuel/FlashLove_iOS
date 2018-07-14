@@ -116,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
             let imageUrl = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400).absoluteString
-            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": 0, "likes": 0] as [String : Any]
+            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": 0, "likes": 0, "single" : false,"description" :"","age" : "","picture" : "","profileCompleted" : false] as [String : Any]
                         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)
