@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class Conversation: NSObject {
     var fromId : String?
@@ -21,5 +22,13 @@ class Conversation: NSObject {
         self.toId = toId
         self.text = text
         self.name = name
+    }
+    
+    func conversationParnerId () -> String? {
+        if fromId == Auth.auth().currentUser?.uid {
+            return toId
+        }else {
+            return fromId
+        }
     }
 }

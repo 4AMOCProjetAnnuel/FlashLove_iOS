@@ -25,9 +25,8 @@
                             <constraint firstAttribute="width" constant="100" id="Y70-I8-5dF"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bD-h6-wAe">
-                        <rect key="frame" x="169" y="46" width="79" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bD-h6-wAe">
+                        <rect key="frame" x="131" y="46.5" width="78.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,6 +36,8 @@
                 <constraints>
                     <constraint firstItem="Xoa-XZ-YCu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ta0-PN-UV3"/>
                     <constraint firstItem="Xoa-XZ-YCu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bcd-Qq-zgH"/>
+                    <constraint firstItem="0bD-h6-wAe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="cc2-xf-83K"/>
+                    <constraint firstItem="0bD-h6-wAe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tNh-SX-eBY"/>
                     <constraint firstAttribute="bottom" secondItem="Xoa-XZ-YCu" secondAttribute="bottom" id="zhV-ie-Idj"/>
                 </constraints>
             </tableViewCellContentView>

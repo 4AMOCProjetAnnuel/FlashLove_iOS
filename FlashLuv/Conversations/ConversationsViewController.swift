@@ -151,4 +151,17 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let conversationByUser = ConversationByUserViewController()
+        let conversation = conversations[indexPath.row]
+        guard let conversationPartnerId = conversation.conversationParnerId() else {return}
+        let ref = Database.database().reference().child("users").child(conversationPartnerId)
+        ref.observe(.value, with: { (snapshot) in
+            
+        }, withCancel: nil)
+        
+        conversationByUser.userId = conversationPartnerId
+        navigationController?.pushViewController(conversationByUser, animated: true)
+    }
 }

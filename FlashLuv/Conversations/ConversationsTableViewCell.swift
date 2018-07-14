@@ -34,13 +34,7 @@ class ConversationsTableViewCell: UITableViewCell {
         return label
     }()
     private func setupNameAndAvatar(){
-        let conversationPartnerId : String?
-        if conversation?.fromId == Auth.auth().currentUser?.uid {
-            conversationPartnerId = conversation?.toId
-        }else {
-            conversationPartnerId = conversation?.fromId
-        }
-        if let id = conversationPartnerId {
+        if let id = conversation?.conversationParnerId() {
             let ref = Database.database().reference().child("users").child(id)
             ref.observe(.value, with: { (snapshot) in
                 if let userFieldDictionnary = snapshot.value as? [String: Any]{
@@ -58,6 +52,9 @@ class ConversationsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        userName.font = UIFont(name: "Lato-Regular", size: 18)
+        userName.textColor = .white
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2 
         addSubview(timeLabel)
         timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
