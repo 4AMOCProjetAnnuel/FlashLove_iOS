@@ -50,6 +50,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         quizzViewTitle.font = titleFont
         quizzDescription.font = descrptionFont
         saveButton.addTarget(self, action: #selector(saveAnswers), for: .touchUpInside)
+        saveButton.isHidden = true
     }
     
     func getUserInfoFromFirebase() {
@@ -172,6 +173,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             
             let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
             recipientUserConversationsRef.updateChildValues([conversationId : 1])
+        
         }
 
     func createConversation() {
@@ -198,6 +200,27 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
         recipientUserConversationsRef.updateChildValues([conversationId : 1])
         newConversationId = conversationId
+        setNotification(conversationId: conversationId)
     }
 
+    func setNotification(conversationId : String) {
+        guard let id = uid else {return}
+        Database.database().reference().child("users").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
+            print(snapshot.exists())
+            if (snapshot.exists()){
+                if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                    guard let fcmToken = userFieldDictionnary["fcmToken"] as? String else {
+                        return
+                    }
+                    CustomNotifications.sendNotication(fcmToken: fcmToken, uid: id, from: "quizz", conversationId: conversationId)
+                }
+            }
+        }) { (err) in
+            if err != nil {
+                print("user does not exist")
+            }
+        }
+        
+        
+    }
 }

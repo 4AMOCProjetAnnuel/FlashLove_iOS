@@ -13,7 +13,7 @@ import Firebase
 class CustomNotifications {
     let cloudMessagingKey = "AAAAB3Q73EI:APA91bGTGzl844pGXaMT4NdsFbgA0fmQmd_rF6N4G3LCsgQyEvWUGaYD0E12a329aeOO3snFLpUYfVR8Z9r9kLzjgh6KsqMODFPpAOLhJLaiB_MDPFW6dgHhHrIo9IC0f83fasdFFtsK"
 
-    static func sendNotication(fcmToken : String, uid: String, from : String){
+    static func sendNotication(fcmToken : String, uid: String, from : String, conversationId : String?){
         guard let url = URL(string: "https://fcm.googleapis.com/fcm/send") else {
             return
         }
@@ -24,7 +24,10 @@ class CustomNotifications {
         "Authorization":"key=AAAAB3Q73EI:APA91bGTGzl844pGXaMT4NdsFbgA0fmQmd_rF6N4G3LCsgQyEvWUGaYD0E12a329aeOO3snFLpUYfVR8Z9r9kLzjgh6KsqMODFPpAOLhJLaiB_MDPFW6dgHhHrIo9IC0f83fasdFFtsK"
         ]
         var parameters : [String : Any] = [:]
-        if (from.elementsEqual("quizz")){
+        guard let convId = conversationId else {
+            return
+        }
+        if (from.elementsEqual("quizz") && !convId.elementsEqual("")){
             parameters = [
                 "to": fcmToken,
                 "notification" : [
@@ -32,6 +35,7 @@ class CustomNotifications {
                     "title": "Quiz Alert"
                 ],
                 "data" : [
+                    "conversationId" : "\(conversationId)",
                     "flashedUserId" : "\(uid)",
                     "flashingUserId" : Auth.auth().currentUser?.uid
                 ],

@@ -209,7 +209,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         //Messaging.messaging().apnsToken = deviceToken
     }
     
-    func handleDeeplink(title : String, uid : String){
+    func handleDeeplink(title : String, uid : String, conversationId : String?){
         if (title == "Flash Alert"){
             let profileViewController = ProfileViewController()
             profileViewController.uid = uid
@@ -220,7 +220,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             
         }
         if (title == "Quiz Alert"){
-            print(title)
+            /*let quizAnswersViewController = QuizzAnswerViewController()
+            guard let convId = conversationId else {return}
+            quizAnswersViewController.conversationId = convId*/
+            let conversationByUser = ConversationByUserViewController()
+            conversationByUser.userId = uid
+            let tabBar = FlashLuvTabBarController()
+            window?.rootViewController?.present(tabBar, animated: false, completion: {
+                tabBar.userConnectedProfileViewController.pushViewController(conversationByUser, animated: true)
+            })
         }
         
     }
@@ -269,7 +277,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             return
         }
     
-        handleDeeplink(title : notificationTitle, uid : userId)
+        let conversationId =  userInfo["conversationId"] as? String
+        handleDeeplink(title : notificationTitle, uid : userId, conversationId: conversationId)
         // Print full message.
         print(userInfo)
         

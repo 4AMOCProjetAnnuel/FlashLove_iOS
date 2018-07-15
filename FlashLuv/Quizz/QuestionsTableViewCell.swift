@@ -58,6 +58,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
             if err != nil {
                 print(err)
                 return
+               
             }
         }
         
