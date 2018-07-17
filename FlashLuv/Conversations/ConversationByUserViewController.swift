@@ -54,7 +54,7 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
                         let name = dictionnary["name"] as? String else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
+                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
                    conversation.conversationId = conversationId
                     if conversation.conversationParnerId() == self.userId {
                         if (self.conversationSegmentedControl.selectedSegmentIndex == 1 && conversation.fromId == Auth.auth().currentUser?.uid) {
@@ -83,18 +83,12 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ConversationByUserTableViewCell
         let conversation = conversations[indexPath.row]
-        cell.conversationTitleLabel.text = conversation.text
-        
-        if conversation.fromId == Auth.auth().currentUser?.uid {
-            cell.backgroundColor = .cyan
-        }else {
-            cell.backgroundColor = .yellow
-        }
+        cell.conversation = conversation
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 105
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

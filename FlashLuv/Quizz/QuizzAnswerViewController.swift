@@ -14,6 +14,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
    
     
     
+    @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var quizzViewTitle: UILabel!
     @IBOutlet weak var quizzDescription: UILabel!
     @IBOutlet weak var saveButton: UIButton!
@@ -68,8 +69,14 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                 guard let userQuestions = userFieldDictionnary["questions"] as? [String] else {
                     return
                 }
+                
                 self.questions = userQuestions
                 self.questionsTableView.reloadData()
+                guard let flirts = userFieldDictionnary["flirts"] as? Int else {
+                    return
+                }
+                self.updateFlirtCount(uid : uid,flirts)
+                
             }
         }, withCancel: nil)
         createConversation()
@@ -109,7 +116,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 200
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -183,6 +190,11 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             let toId = uid,
             let fromId = Auth.auth().currentUser?.uid else {return}
         let timeStamp = Date().timeIntervalSince1970 as NSNumber
+        let quizItem = QuizItem()
+        quizItem.question = "Fodé sait - il coder sur iOS ? mdrrrrrr"
+        quizItem.reponse = "On sait pas"
+        var quizitems = [QuizItem]()
+        quizitems.append(quizItem)
         let values = ["text" : "quiz", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : 50, "recordedHumidity" : 50, "recordedTemperature" : 50] as [String : Any]
         
         
@@ -193,6 +205,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             }
             
         }
+        
         let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
         let conversationId = childRef.key
         userConversationsRef.updateChildValues([conversationId : 1])
@@ -202,6 +215,23 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         newConversationId = conversationId
         setNotification(conversationId: conversationId)
     }
+    
+    func updateFlirtCount(uid : String, _ currentNumberOfFlirts: Int){
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        let counter = currentNumberOfFlirts + 1
+        let values = ["flirts" : counter] as [String : Any]
+        
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            
+            print("User Modified")
+        })
+    }
+
 
     func setNotification(conversationId : String) {
         guard let id = uid else {return}

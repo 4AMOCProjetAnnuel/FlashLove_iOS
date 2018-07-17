@@ -115,8 +115,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             print("Connecté avec cet uid", uid)
             let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
             let usersReference = ref.child("users").child(uid)
+            var flirts : Int?
+            var likes : Int?
+            var views : Int?
+            
+            usersReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String : Any] {
+                    flirts = dictionary["flirts"] as? Int
+                    likes = dictionary["likes"] as? Int
+                    views = dictionary["views"] as? Int
+                    if( flirts == nil){
+                        flirts = 0
+                    }
+                    if( likes == nil){
+                        likes = 0
+                    }
+                    if( views == nil){
+                        views = 0
+                    }
+                }
+            }, withCancel: nil)
+            
+            
             let imageUrl = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400).absoluteString
-            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": 0, "likes": 0, "single" : false,"description" :"","age" : "","picture" : "","profileCompleted" : false] as [String : Any]
+            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": views, "likes": likes, "flirts" : flirts, "single" : false,"description" :"","age" : "","picture" : "","profileCompleted" : false, "heartbeat" : 0, "humidity" : 0, "temperature" : 0] as [String : Any]
                         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)
@@ -225,6 +247,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             quizAnswersViewController.conversationId = convId*/
             let conversationByUser = ConversationByUserViewController()
             conversationByUser.userId = uid
+            guard let convId = conversationId else {return}
             let tabBar = FlashLuvTabBarController()
             window?.rootViewController?.present(tabBar, animated: false, completion: {
                 tabBar.userConnectedProfileViewController.pushViewController(conversationByUser, animated: true)

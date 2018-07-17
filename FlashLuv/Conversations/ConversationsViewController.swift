@@ -47,7 +47,7 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                         let name = dictionnary["name"] as? String else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
+                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
                     print(snapshot)
                     conversation.conversationId = snapshot.key
                     self.conversationsDictionnary[toId] = conversation
@@ -76,7 +76,7 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                     let name = dictionnary["name"] as? String else {
                         return
                 }
-                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: ["question" : "reponse"])
+                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
                 conversation.conversationId = snapshot.key
                 print(snapshot)
                 //self.conversations.append(conversation)

@@ -18,11 +18,11 @@ class Conversation: NSObject {
     var recordedHeartBeat : Float? = 50
     var recordedHumidity : Float? = 50
     var recordedTemperature : Float? = 50
-    var quiz : [String : String]?
+    var quiz : [QuizItem]?
     var conversationId : String?
     
 
-    init( fromId : String, timestamp : NSNumber, toId : String, text : String, name : String, quiz : [String : String] ) {
+    init( fromId : String, timestamp : NSNumber, toId : String, text : String, name : String, quiz : [QuizItem] ) {
         self.fromId = fromId
         self.timestamp = timestamp
         self.toId = toId
@@ -38,4 +38,10 @@ class Conversation: NSObject {
             return fromId
         }
     }
+}
+
+class QuizItem {
+    var question : String?
+    var reponse : String?
+    
 }

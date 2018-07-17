@@ -6,42 +6,60 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="83" id="KGk-i7-Jjw" customClass="ConversationByUserTableViewCell" customModule="FlashLuv" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="ConversationByUserTableViewCell" customModule="FlashLuv" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="346" height="105"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="82.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="346" height="104.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJV-Ei-VTp">
-                        <rect key="frame" x="139" y="31" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-qY-nMz">
-                        <rect key="frame" x="230" y="31" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PM0-22-72a">
+                        <rect key="frame" x="10" y="22.5" width="60" height="60"/>
+                        <color key="backgroundColor" red="0.77737879750000005" green="0.002156153787" blue="0.33226287360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="a8f-rI-4L5"/>
+                            <constraint firstAttribute="width" constant="60" id="ax3-13-tuH"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWP-uk-tv1">
+                        <rect key="frame" x="110" y="16" width="220" height="83"/>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnq-yQ-YRp">
+                        <rect key="frame" x="10" y="85" width="60" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="HL6-1x-kAZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="PM0-22-72a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="6js-QC-ecb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BWP-uk-tv1" secondAttribute="trailing" id="AoN-xj-hMD"/>
+                    <constraint firstItem="Jnq-yQ-YRp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="MnE-RB-hRd"/>
+                    <constraint firstItem="PM0-22-72a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QIm-bt-0Hj"/>
+                    <constraint firstItem="BWP-uk-tv1" firstAttribute="leading" secondItem="PM0-22-72a" secondAttribute="trailing" constant="40" id="c8n-aQ-Hi7"/>
+                    <constraint firstItem="BWP-uk-tv1" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" constant="5" id="i1m-fL-M1o"/>
+                    <constraint firstItem="Jnq-yQ-YRp" firstAttribute="top" secondItem="PM0-22-72a" secondAttribute="bottom" constant="2" id="jay-8o-myQ"/>
+                    <constraint firstItem="BWP-uk-tv1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="oSy-kh-pu3"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="conversationTitleLabel" destination="eJV-Ei-VTp" id="fxP-Ms-Zx3"/>
-                <outlet property="dateLabel" destination="a1D-qY-nMz" id="yB2-pg-3SZ"/>
+                <outlet property="dataCapteurStackView" destination="BWP-uk-tv1" id="GWA-J4-APE"/>
+                <outlet property="profileImageView" destination="PM0-22-72a" id="TSf-7O-pph"/>
+                <outlet property="profileName" destination="Jnq-yQ-YRp" id="OSK-7h-AAA"/>
             </connections>
-            <point key="canvasLocation" x="34" y="108.5"/>
+            <point key="canvasLocation" x="58" y="104.5"/>
         </tableViewCell>
     </objects>
 </document>

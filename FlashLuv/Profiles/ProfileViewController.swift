@@ -284,6 +284,7 @@ class ProfileViewController: UIViewController {
         
         chatButton.addTarget(self, action: #selector(chatLogController), for: .touchUpInside)
         quizzButton.addTarget(self, action: #selector(goToQuizz), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(updatelikesCount), for: .touchUpInside)
 
     }
     
@@ -333,35 +334,35 @@ class ProfileViewController: UIViewController {
         }, withCancel: nil)
     }
     
-    func updateViewCount(uid : String, _ currentNumberOfLikes: Int){
+    @objc func updatelikesCount(){
+        guard let uid = uid else {return}
         let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
         let usersReference = ref.child("users").child(uid)
+        var currentNumberOfLikes : Int? = 0
         
-        if (isLiked){
-            let counter = currentNumberOfLikes - 1
-            let values = ["likes" : counter] as [String : Any]
-            
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err)
-                    return
+        usersReference.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String : Any] {
+                
+                currentNumberOfLikes = dictionary["likes"] as? Int
+                if (currentNumberOfLikes == nil) {
+                    currentNumberOfLikes = 0
                 }
-                self.isLiked = !self.isLiked
-                print("User Modified")
-            })
-        }else{
-            let counter = currentNumberOfLikes + 1
-            let values = ["likes" : counter] as [String : Any]
-            
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err)
-                    return
-                }
-                self.isLiked = !self.isLiked
-                print("User Modified")
-            })
-        }
+                let counter = currentNumberOfLikes! + 1 
+                let values = ["likes" : counter] as [String : Any]
+                
+                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    if err != nil {
+                        print(err)
+                        return
+                    }
+                    
+                    print("User Modified")
+                })
+            }
+        }, withCancel: nil)
+        
+     
+       
         
     }
     
