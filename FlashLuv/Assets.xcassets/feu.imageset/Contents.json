@@ -2,17 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "water@1x.png",
+      "filename" : "feu@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "water@2x.png",
+      "filename" : "feu@2x.png",
       "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
     }
   ],
   "info" : {

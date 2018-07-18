@@ -8,19 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		32F9EDCC81E2D15BF96D10EE /* Pods_FlashLuv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01A1AA17FE3F6D22FF5A359D /* Pods_FlashLuv.framework */; };
+		5A05930E20F9FD34004D14CA /* ConversationByUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A05930C20F9FD34004D14CA /* ConversationByUserViewController.swift */; };
+		5A05930F20F9FD34004D14CA /* ConversationByUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A05930D20F9FD34004D14CA /* ConversationByUserViewController.xib */; };
+		5A05931220FA0299004D14CA /* ConversationByUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A05931020FA0299004D14CA /* ConversationByUserTableViewCell.swift */; };
+		5A05931320FA0299004D14CA /* ConversationByUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A05931120FA0299004D14CA /* ConversationByUserTableViewCell.xib */; };
 		5A202CA220B44E6D00933C7D /* UserConnectedProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */; };
 		5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4938F720809AC700A16A95 /* AppDelegate.swift */; };
 		5A4938FF20809AC800A16A95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A4938FE20809AC800A16A95 /* Assets.xcassets */; };
 		5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A49390020809AC800A16A95 /* LaunchScreen.storyboard */; };
 		5A71C14420F11862001813F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A71C14320F11862001813F6 /* GoogleService-Info.plist */; };
 		5AA09B4020D69855001BBAA5 /* FlashLuvTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */; };
+		5ABAF9FA20F941DA005F0E2D /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABAF9F920F941DA005F0E2D /* Conversation.swift */; };
+		5ABAFA0420F943E6005F0E2D /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABAFA0220F943E6005F0E2D /* ConversationsTableViewCell.swift */; };
+		5ABAFA0520F943E6005F0E2D /* ConversationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABAFA0320F943E6005F0E2D /* ConversationsTableViewCell.xib */; };
+		5ABAFA0820F9479E005F0E2D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABAFA0620F9479E005F0E2D /* ConversationsViewController.swift */; };
+		5ABAFA0920F9479E005F0E2D /* ConversationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ABAFA0720F9479E005F0E2D /* ConversationsViewController.xib */; };
 		5ACFD96220DE360900555700 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACFD96120DE360900555700 /* Extensions.swift */; };
 		5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F8192095F3D3008E7027 /* LoginViewController.swift */; };
-		5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */; };
 		5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AED52A920D3D27500A36D7A /* PhotoViewController.swift */; };
 		5AF0E5C720F68F7B006D084A /* CustomNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */; };
-		5AFA004B20E61414006EE3D5 /* WifiConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA004920E61413006EE3D5 /* WifiConfigurationViewController.swift */; };
-		5AFA004C20E61414006EE3D5 /* WifiConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA004A20E61413006EE3D5 /* WifiConfigurationViewController.xib */; };
 		5AFA004F20E620EF006EE3D5 /* QuizzConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */; };
 		5AFA005020E620EF006EE3D5 /* QuizzConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFA004E20E620EF006EE3D5 /* QuizzConfigurationViewController.xib */; };
 		5AFA005320E62FBC006EE3D5 /* QuizzAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFA005120E62FBC006EE3D5 /* QuizzAnswerViewController.swift */; };
@@ -36,6 +42,10 @@
 /* Begin PBXFileReference section */
 		01A1AA17FE3F6D22FF5A359D /* Pods_FlashLuv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashLuv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43630761E132DEC655789476 /* Pods-FlashLuv.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashLuv.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlashLuv/Pods-FlashLuv.debug.xcconfig"; sourceTree = "<group>"; };
+		5A05930C20F9FD34004D14CA /* ConversationByUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationByUserViewController.swift; sourceTree = "<group>"; };
+		5A05930D20F9FD34004D14CA /* ConversationByUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationByUserViewController.xib; sourceTree = "<group>"; };
+		5A05931020FA0299004D14CA /* ConversationByUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationByUserTableViewCell.swift; sourceTree = "<group>"; };
+		5A05931120FA0299004D14CA /* ConversationByUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationByUserTableViewCell.xib; sourceTree = "<group>"; };
 		5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConnectedProfileViewController.swift; sourceTree = "<group>"; };
 		5A4938F420809AC700A16A95 /* FlashLuv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashLuv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4938F720809AC700A16A95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,13 +55,15 @@
 		5A71C14320F11862001813F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashLuvTabBarController.swift; sourceTree = "<group>"; };
 		5AB9A9522097417C00931D63 /* FlashLuv.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashLuv.entitlements; sourceTree = "<group>"; };
+		5ABAF9F920F941DA005F0E2D /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		5ABAFA0220F943E6005F0E2D /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
+		5ABAFA0320F943E6005F0E2D /* ConversationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsTableViewCell.xib; sourceTree = "<group>"; };
+		5ABAFA0620F9479E005F0E2D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		5ABAFA0720F9479E005F0E2D /* ConversationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsViewController.xib; sourceTree = "<group>"; };
 		5ACFD96120DE360900555700 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5AE0F8192095F3D3008E7027 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationTableViewController.swift; sourceTree = "<group>"; };
 		5AED52A920D3D27500A36D7A /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNotifications.swift; sourceTree = "<group>"; };
-		5AFA004920E61413006EE3D5 /* WifiConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiConfigurationViewController.swift; sourceTree = "<group>"; };
-		5AFA004A20E61413006EE3D5 /* WifiConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WifiConfigurationViewController.xib; sourceTree = "<group>"; };
 		5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzConfigurationViewController.swift; sourceTree = "<group>"; };
 		5AFA004E20E620EF006EE3D5 /* QuizzConfigurationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizzConfigurationViewController.xib; sourceTree = "<group>"; };
 		5AFA005120E62FBC006EE3D5 /* QuizzAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzAnswerViewController.swift; sourceTree = "<group>"; };
@@ -110,29 +122,67 @@
 				7A230D762090BDD200191637 /* fonts */,
 				5AB9A9522097417C00931D63 /* FlashLuv.entitlements */,
 				5A4938F720809AC700A16A95 /* AppDelegate.swift */,
-				5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */,
-				5AFA004E20E620EF006EE3D5 /* QuizzConfigurationViewController.xib */,
-				5AFA004920E61413006EE3D5 /* WifiConfigurationViewController.swift */,
-				5AFA004A20E61413006EE3D5 /* WifiConfigurationViewController.xib */,
+				5ABAFA0D20F9521D005F0E2D /* Model */,
+				5ABAFA0A20F95182005F0E2D /* Conversations */,
+				5ABAFA0B20F95199005F0E2D /* Profiles */,
+				5ABAFA0C20F951D0005F0E2D /* Quizz */,
 				5AE0F8192095F3D3008E7027 /* LoginViewController.swift */,
-				5AE0F81B2095F46A008E7027 /* ConversationTableViewController.swift */,
 				5A71C14320F11862001813F6 /* GoogleService-Info.plist */,
 				5A4938FE20809AC800A16A95 /* Assets.xcassets */,
 				5A49390020809AC800A16A95 /* LaunchScreen.storyboard */,
 				5A49390320809AC800A16A95 /* Info.plist */,
-				7A230D74208F5CC600191637 /* ProfileViewController.swift */,
-				5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */,
 				7A8AB8302091E18F0067D67C /* ChatLogController.swift */,
 				5AED52A920D3D27500A36D7A /* PhotoViewController.swift */,
 				5AA09B3F20D69855001BBAA5 /* FlashLuvTabBarController.swift */,
 				5ACFD96120DE360900555700 /* Extensions.swift */,
-				5AFA005720E63388006EE3D5 /* QuestionsTableViewCell.swift */,
-				5AFA005820E63388006EE3D5 /* QuestionsTableViewCell.xib */,
-				5AFA005120E62FBC006EE3D5 /* QuizzAnswerViewController.swift */,
-				5AFA005220E62FBC006EE3D5 /* QuizzAnswerViewController.xib */,
-				5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */,
 			);
 			path = FlashLuv;
+			sourceTree = "<group>";
+		};
+		5ABAFA0A20F95182005F0E2D /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				5ABAFA0220F943E6005F0E2D /* ConversationsTableViewCell.swift */,
+				5ABAFA0320F943E6005F0E2D /* ConversationsTableViewCell.xib */,
+				5ABAFA0620F9479E005F0E2D /* ConversationsViewController.swift */,
+				5ABAFA0720F9479E005F0E2D /* ConversationsViewController.xib */,
+				5A05930C20F9FD34004D14CA /* ConversationByUserViewController.swift */,
+				5A05930D20F9FD34004D14CA /* ConversationByUserViewController.xib */,
+				5A05931020FA0299004D14CA /* ConversationByUserTableViewCell.swift */,
+				5A05931120FA0299004D14CA /* ConversationByUserTableViewCell.xib */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		5ABAFA0B20F95199005F0E2D /* Profiles */ = {
+			isa = PBXGroup;
+			children = (
+				7A230D74208F5CC600191637 /* ProfileViewController.swift */,
+				5A202CA120B44E6D00933C7D /* UserConnectedProfileViewController.swift */,
+			);
+			path = Profiles;
+			sourceTree = "<group>";
+		};
+		5ABAFA0C20F951D0005F0E2D /* Quizz */ = {
+			isa = PBXGroup;
+			children = (
+				5AFA005720E63388006EE3D5 /* QuestionsTableViewCell.swift */,
+				5AFA005820E63388006EE3D5 /* QuestionsTableViewCell.xib */,
+				5AFA004D20E620EF006EE3D5 /* QuizzConfigurationViewController.swift */,
+				5AFA004E20E620EF006EE3D5 /* QuizzConfigurationViewController.xib */,
+				5AFA005120E62FBC006EE3D5 /* QuizzAnswerViewController.swift */,
+				5AFA005220E62FBC006EE3D5 /* QuizzAnswerViewController.xib */,
+			);
+			path = Quizz;
+			sourceTree = "<group>";
+		};
+		5ABAFA0D20F9521D005F0E2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5AF0E5C620F68F7B006D084A /* CustomNotifications.swift */,
+				5ABAF9F920F941DA005F0E2D /* Conversation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		641FD2A29AF762F6587A3FAB /* Frameworks */ = {
@@ -224,14 +274,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A05931320FA0299004D14CA /* ConversationByUserTableViewCell.xib in Resources */,
 				5AFA005420E62FBC006EE3D5 /* QuizzAnswerViewController.xib in Resources */,
 				5A49390220809AC800A16A95 /* LaunchScreen.storyboard in Resources */,
 				5A71C14420F11862001813F6 /* GoogleService-Info.plist in Resources */,
+				5A05930F20F9FD34004D14CA /* ConversationByUserViewController.xib in Resources */,
+				5ABAFA0520F943E6005F0E2D /* ConversationsTableViewCell.xib in Resources */,
 				7A230D7A2090BDE600191637 /* Lato-Regular.ttf in Resources */,
 				5AFA005020E620EF006EE3D5 /* QuizzConfigurationViewController.xib in Resources */,
 				7A230D792090BDE600191637 /* Lato-Bold.ttf in Resources */,
+				5ABAFA0920F9479E005F0E2D /* ConversationsViewController.xib in Resources */,
 				5A4938FF20809AC800A16A95 /* Assets.xcassets in Resources */,
-				5AFA004C20E61414006EE3D5 /* WifiConfigurationViewController.xib in Resources */,
 				5AFA005A20E63388006EE3D5 /* QuestionsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,16 +407,19 @@
 				5ACFD96220DE360900555700 /* Extensions.swift in Sources */,
 				7A8AB8312091E18F0067D67C /* ChatLogController.swift in Sources */,
 				7A230D75208F5CC600191637 /* ProfileViewController.swift in Sources */,
-				5AE0F81C2095F46A008E7027 /* ConversationTableViewController.swift in Sources */,
+				5ABAFA0820F9479E005F0E2D /* ConversationsViewController.swift in Sources */,
+				5A05930E20F9FD34004D14CA /* ConversationByUserViewController.swift in Sources */,
 				5AF0E5C720F68F7B006D084A /* CustomNotifications.swift in Sources */,
 				5AED52AA20D3D27500A36D7A /* PhotoViewController.swift in Sources */,
+				5ABAF9FA20F941DA005F0E2D /* Conversation.swift in Sources */,
 				5AFA005920E63388006EE3D5 /* QuestionsTableViewCell.swift in Sources */,
 				5AE0F81A2095F3D3008E7027 /* LoginViewController.swift in Sources */,
 				5AA09B4020D69855001BBAA5 /* FlashLuvTabBarController.swift in Sources */,
 				5AFA005320E62FBC006EE3D5 /* QuizzAnswerViewController.swift in Sources */,
 				5AFA004F20E620EF006EE3D5 /* QuizzConfigurationViewController.swift in Sources */,
-				5AFA004B20E61414006EE3D5 /* WifiConfigurationViewController.swift in Sources */,
 				5A4938F820809AC700A16A95 /* AppDelegate.swift in Sources */,
+				5A05931220FA0299004D14CA /* ConversationByUserTableViewCell.swift in Sources */,
+				5ABAFA0420F943E6005F0E2D /* ConversationsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,7 +561,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -524,7 +583,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2STZ642E42;
 				INFOPLIST_FILE = FlashLuv/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moc.bigteam.FlashLuv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

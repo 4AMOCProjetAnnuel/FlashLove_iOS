@@ -102,19 +102,20 @@ class ConversationByUserTableViewCell: UITableViewCell {
                 timeLabel.text = dateFormatter.string(from: timestampDate)
                 
             }
-            if let fromId = conversation?.fromId {
-              getUserName(uid: fromId, from: true)
-            }
-            
-            if let toId = conversation?.toId {
-                 getUserName(uid: toId, from: false)
-            }
-            
-            if conversation?.fromId == Auth.auth().currentUser?.uid {
+            var fromId = conversation?.fromId
+            if fromId == Auth.auth().currentUser?.uid {
+                guard let id = conversation?.conversationParnerId() else {return}
+                getUserName(uid: id)
                 self.backgroundColor = .white
             }else {
+                guard let id = fromId else {return}
+                getUserName(uid: id)
                 self.backgroundColor = .yellow
             }
+            
+            temperatureLabel.text = conversation?.recordedTemperature
+            humidityLabel.text = conversation?.recordedHumidity
+            heartBeatLabel.text = conversation?.recordedHeartBeat
         }
     }
     
@@ -141,23 +142,28 @@ class ConversationByUserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func getUserName(uid : String, from : Bool) {
+    func getUserName(uid : String) {
         
         let ref = Database.database().reference().child("users").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             if let dictonnary = snapshot.value as? [String : Any] {
-                if from {
-                   self.profileName.text = dictonnary["displayName"] as? String
-                }else{
-                   self.profileName.text = dictonnary["displayName"] as? String
+                self.profileName.text = dictonnary["displayName"] as? String
+                guard let link = dictonnary["photoUrl"] as? String else {
+                    return
                 }
+                self.profileImageView.downloadedFrom(link: link)
             }
             
         }, withCancel: nil)
       
     }
     func setUpLayout(){
+        
+        profileImageView.layer.cornerRadius = 30
+        profileImageView.contentMode = .scaleAspectFit
+        profileImageView.clipsToBounds = true
         let imagesSize : CGFloat = 40
+        profileName.font =  UIFont(name: "Lato-Regular", size: 14)
         // buttonStackView.addArrangedSubview(chatButton)
         heartBeatViewContainer.addSubview(heartBeatImageView)
         heartBeatViewContainer.addSubview(heartBeatLabel)

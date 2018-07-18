@@ -126,6 +126,33 @@ class ProfileViewController: UIViewController {
         return label
     }()
     
+    let numberOfFlirtsContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let numberOfFlirtsImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "feu")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor().getPrimaryPinkDark()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let numberOfFlirtsLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    
     let likeContainer : UIView = {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -276,8 +303,22 @@ class ProfileViewController: UIViewController {
         numberOfLikeLabel.bottomAnchor.constraint(equalTo: likeContainer.bottomAnchor, constant: 0).isActive = true
         numberOfLikeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
+        numberOfFlirtsContainer.addSubview(numberOfFlirtsImageView)
+        numberOfFlirtsContainer.addSubview(numberOfFlirtsLabel)
+        
+        numberOfFlirtsImageView.topAnchor.constraint(equalTo: numberOfFlirtsContainer.topAnchor, constant: 0).isActive = true
+        numberOfFlirtsImageView.leadingAnchor.constraint(equalTo: numberOfFlirtsContainer.leadingAnchor, constant: 0).isActive = true
+        numberOfFlirtsImageView.trailingAnchor.constraint(equalTo: numberOfFlirtsContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.topAnchor.constraint(equalTo: numberOfFlirtsImageView.bottomAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.trailingAnchor.constraint(equalTo: numberOfFlirtsImageView.trailingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.leadingAnchor.constraint(equalTo: numberOfFlirtsImageView.leadingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.bottomAnchor.constraint(equalTo: numberOfFlirtsContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
         buttonStackView.addArrangedSubview(numberOfViewContainer)
         buttonStackView.addArrangedSubview(likeContainer)
+        buttonStackView.addArrangedSubview(numberOfFlirtsContainer)
+
     
         buttonStackView.distribution = .fillEqually
         buttonStackView.spacing = 15

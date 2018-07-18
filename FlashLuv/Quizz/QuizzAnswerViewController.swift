@@ -14,12 +14,14 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
    
     
     
+    @IBOutlet weak var dataStackView: UIStackView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var quizzViewTitle: UILabel!
     @IBOutlet weak var quizzDescription: UILabel!
     @IBOutlet weak var saveButton: UIButton!
     
     @IBOutlet weak var questionsTableView: UITableView!
+    var fromFlirts = false
     let cellId = "questionscell"
     var uid : String? = String()
     var questions : [String] = []
@@ -27,6 +29,85 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     var quiz : [String : String] = [:]
     var conversationId : String?
     var newConversationId : String?
+    
+    let heartBeatViewContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    let heartBeatImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "bar_chart")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let heartBeatLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0/200"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font =  UIFont(name: "Lato-Regular", size: 14)
+        return label
+    }()
+    
+    let humidityViewContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let humidityImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "water")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let humidityLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0/200"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font =  UIFont(name: "Lato-Regular", size: 14)
+        return label
+    }()
+    
+    let temperatureViewContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let temperatureImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "thermometer")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let temperatureLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0/200"
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font =  UIFont(name: "Lato-Regular", size: 14)
+        return label
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         questionsTableView.dataSource = self
@@ -35,6 +116,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         questionsTableView.register(nib, forCellReuseIdentifier: cellId)
         setupView()
         getUserInfoFromFirebase()
+        userImageView.backgroundColor = .yellow
 
         // Do any additional setup after loading the view.
     }
@@ -50,8 +132,69 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         let descrptionFont = UIFont(name: "Lato-Bold", size: 17)
         quizzViewTitle.font = titleFont
         quizzDescription.font = descrptionFont
-        saveButton.addTarget(self, action: #selector(saveAnswers), for: .touchUpInside)
         saveButton.isHidden = true
+        dataStackView.backgroundColor = .white
+        let imagesSize : CGFloat = 40
+       
+        heartBeatViewContainer.addSubview(heartBeatImageView)
+        heartBeatViewContainer.addSubview(heartBeatLabel)
+        
+        heartBeatImageView.topAnchor.constraint(equalTo: heartBeatViewContainer.topAnchor, constant: 0).isActive = true
+        //heartBeatImageView.leadingAnchor.constraint(equalTo: heartBeatViewContainer.leadingAnchor, constant: 0).isActive = true
+        //heartBeatImageView.trailingAnchor.constraint(equalTo: heartBeatViewContainer.trailingAnchor, constant: 0).isActive = true
+        heartBeatImageView.centerXAnchor.constraint(equalTo: heartBeatViewContainer.centerXAnchor, constant: 0).isActive = true
+        heartBeatImageView.heightAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        heartBeatImageView.widthAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        heartBeatLabel.topAnchor.constraint(equalTo: heartBeatImageView.bottomAnchor, constant: 0).isActive = true
+        heartBeatLabel.trailingAnchor.constraint(equalTo: heartBeatImageView.trailingAnchor, constant: 0).isActive = true
+        heartBeatLabel.leadingAnchor.constraint(equalTo: heartBeatImageView.leadingAnchor, constant: 0).isActive = true
+        heartBeatLabel.bottomAnchor.constraint(equalTo: heartBeatViewContainer.bottomAnchor, constant: 0).isActive = true
+        heartBeatLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        
+        humidityViewContainer.addSubview(humidityImageView)
+        humidityViewContainer.addSubview(humidityLabel)
+        
+        humidityImageView.topAnchor.constraint(equalTo: humidityViewContainer.topAnchor, constant: 0).isActive = true
+        //humidityImageView.leadingAnchor.constraint(equalTo: humidityViewContainer.leadingAnchor, constant: 0).isActive = true
+        //humidityImageView.trailingAnchor.constraint(equalTo: humidityViewContainer.trailingAnchor, constant: 0).isActive = true
+        humidityImageView.centerXAnchor.constraint(equalTo: humidityViewContainer.centerXAnchor, constant: 0).isActive = true
+        humidityImageView.heightAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        humidityImageView.widthAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        humidityLabel.topAnchor.constraint(equalTo: humidityImageView.bottomAnchor, constant: 0).isActive = true
+        humidityLabel.trailingAnchor.constraint(equalTo: humidityImageView.trailingAnchor, constant: 0).isActive = true
+        humidityLabel.leadingAnchor.constraint(equalTo: humidityImageView.leadingAnchor, constant: 0).isActive = true
+        humidityLabel.bottomAnchor.constraint(equalTo: humidityViewContainer.bottomAnchor, constant: 0).isActive = true
+        humidityLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        temperatureViewContainer.addSubview(temperatureImageView)
+        temperatureViewContainer.addSubview(temperatureLabel)
+        
+        temperatureImageView.topAnchor.constraint(equalTo: temperatureViewContainer.topAnchor, constant: 0).isActive = true
+        //temperatureImageView.leadingAnchor.constraint(equalTo: temperatureViewContainer.leadingAnchor, constant: 0).isActive = true
+        //temperatureImageView.trailingAnchor.constraint(equalTo: temperatureViewContainer.trailingAnchor, constant: 0).isActive = true
+        temperatureImageView.centerXAnchor.constraint(equalTo: temperatureViewContainer.centerXAnchor, constant: 0).isActive = true
+        temperatureImageView.heightAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        temperatureImageView.widthAnchor.constraint(equalToConstant: imagesSize).isActive = true
+        temperatureLabel.topAnchor.constraint(equalTo: temperatureImageView.bottomAnchor, constant: 0).isActive = true
+        temperatureLabel.trailingAnchor.constraint(equalTo: temperatureImageView.trailingAnchor, constant: 0).isActive = true
+        temperatureLabel.leadingAnchor.constraint(equalTo: temperatureImageView.leadingAnchor, constant: 0).isActive = true
+        temperatureLabel.bottomAnchor.constraint(equalTo: temperatureViewContainer.bottomAnchor, constant: 0).isActive = true
+        temperatureLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        //timeLabel.trailingAnchor.constraint(equalTo: dataCapteurStackView.trailingAnchor).isActive = true
+        // timeLabel.centerYAnchor.constraint(equalTo: dataCapteurStackView.centerYAnchor).isActive = true
+        //timeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+  
+        
+        dataStackView.addArrangedSubview(heartBeatViewContainer)
+        dataStackView.addArrangedSubview(temperatureViewContainer)
+        dataStackView.addArrangedSubview(humidityViewContainer)
+        
+        
+        
+        dataStackView.distribution = .fillEqually
+        dataStackView.spacing = 15
     }
     
     func getUserInfoFromFirebase() {
@@ -76,6 +219,14 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                     return
                 }
                 self.updateFlirtCount(uid : uid,flirts)
+                self.humidityLabel.text = userFieldDictionnary["humidity"] as? String
+                self.temperatureLabel.text = userFieldDictionnary["temperature"] as? String
+                self.heartBeatLabel.text = userFieldDictionnary["heartbeat"] as? String
+                guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.userImageView.downloadedFrom(link: link)
+                
                 
             }
         }, withCancel: nil)
@@ -83,11 +234,34 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         }else {
             guard let id = self.conversationId else { return }
             let conversationReference = Database.database().reference().child("conversations").child(id)
+            conversationReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let convDictionnary = snapshot.value as? [String : Any] {
+                    self.humidityLabel.text = convDictionnary["recordedHumidity"] as? String
+                    self.temperatureLabel.text = convDictionnary["recordedTemperature"] as? String
+                    self.heartBeatLabel.text = convDictionnary["recordedHeartBeat"] as? String
+                    guard let toId = convDictionnary["toId"] as? String else {return}
+                    let userReference = Database.database().reference().child("users").child(toId)
+                    userReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let userDictionnary = snapshot.value as? [String : Any]{
+                            guard let link = userDictionnary["photoUrl"] as? String else {
+                                return
+                            }
+                            self.userImageView.downloadedFrom(link: link)
+                        }
+                    }, withCancel: nil)
+                    
+                }
+                
+                
+            }, withCancel: nil)
             let quizReference = conversationReference.child("quiz")
             quizReference.observe(.value, with: { (snapshot) in
                 print(snapshot)
+
+                
                 if let dictionnary = snapshot.value as? [String : Any] {
                     print(snapshot)
+                   
                     for child in snapshot.children {
                         let snap = child as! DataSnapshot
                         let key = snap.key
@@ -95,7 +269,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
                         print("key = \(key)  value = \(value!)")
                         if let childDictionnary = value as? [String : Any] {
                         guard let question = childDictionnary["question"] as? String,
-                            let reponse = childDictionnary["reponse"] as? String else {
+                            let reponse = childDictionnary["response"] as? String else {
                                 return
                         }
                         self.questions.append(question)
@@ -131,6 +305,10 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         if (newConversationId != nil) {
             cell.conversationId = newConversationId
         }
+        print(fromFlirts)
+        if (fromFlirts){
+            cell.registerAnswer.isHidden = true
+        }
         
         //cell.questionLabel.text = uid
        cell.answerTextView.delegate = self
@@ -145,57 +323,39 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    @objc func saveAnswers(){
-        //sendButton.setTitleColor(UIColor.red, for: .normal)
-        let ref = Database.database().reference().child("conversations")
-        let childRef = ref.childByAutoId()
-        guard
-            let toId = uid,
-            let fromId = Auth.auth().currentUser?.uid else {return}
-        let timeStamp = Date().timeIntervalSince1970 as NSNumber
-        let values = ["text" : "quiz", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : 50, "recordedHumidity" : 50, "recordedTemperature" : 50] as [String : Any]
-        
-        
-        childRef.updateChildValues(values) { (err, ref) in
-            if err != nil {
-                print(err)
-                return
-            }
-            
-            }
-        for item in quiz {
-            let quizRef = childRef.child("quiz").childByAutoId()
-            let quizValues = ["question" : item.key  , "reponse" : item.value]
-            quizRef.updateChildValues(quizValues) { (err, ref) in
-                if err != nil {
-                    print(err)
-                    return
-                }
-                
-            }
-        }
-            let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
-            let conversationId = childRef.key
-            userConversationsRef.updateChildValues([conversationId : 1])
-            
-            let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
-            recipientUserConversationsRef.updateChildValues([conversationId : 1])
-        
-        }
+    
 
     func createConversation() {
-        let ref = Database.database().reference().child("conversations")
-        let childRef = ref.childByAutoId()
         guard
             let toId = uid,
             let fromId = Auth.auth().currentUser?.uid else {return}
+        let userRef = Database.database().reference().child("users").child(toId)
+        userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+        if let userDictionnary = snapshot.value as? [String : Any] {
+                
+           var humidity = userDictionnary["humidity"] as? String
+            if (humidity == nil) {
+                humidity = "50"
+            }
+           var heartbeat = userDictionnary["heartbeat"] as? String
+            if (heartbeat == nil) {
+                heartbeat = "50"
+            }
+           var temperature = userDictionnary["temperature"] as? String
+            if (temperature == nil) {
+                temperature = "50"
+            }
+            
+            guard let link = userDictionnary["photoUrl"] as? String else {
+                return
+            }
+            self.userImageView.downloadedFrom(link: link)
+        
+        let ref = Database.database().reference().child("conversations")
+        let childRef = ref.childByAutoId()
         let timeStamp = Date().timeIntervalSince1970 as NSNumber
-        let quizItem = QuizItem()
-        quizItem.question = "Fodé sait - il coder sur iOS ? mdrrrrrr"
-        quizItem.reponse = "On sait pas"
-        var quizitems = [QuizItem]()
-        quizitems.append(quizItem)
-        let values = ["text" : "quiz", "name" : "Jhéné Colombo", "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : 50, "recordedHumidity" : 50, "recordedTemperature" : 50] as [String : Any]
+        let values = [ "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : heartbeat, "recordedHumidity" : humidity, "recordedTemperature" : temperature] as [String : Any]
         
         
         childRef.updateChildValues(values) { (err, ref) in
@@ -212,8 +372,10 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         
         let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
         recipientUserConversationsRef.updateChildValues([conversationId : 1])
-        newConversationId = conversationId
-        setNotification(conversationId: conversationId)
+        self.newConversationId = conversationId
+        self.setNotification(conversationId: conversationId)
+             }
+        }, withCancel: nil)
     }
     
     func updateFlirtCount(uid : String, _ currentNumberOfFlirts: Int){

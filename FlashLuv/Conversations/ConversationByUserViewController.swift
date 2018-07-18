@@ -50,11 +50,13 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
                     guard let fromId = dictionnary["fromId"] as? String,
                         let timestamp = dictionnary["timestamp"] as? NSNumber,
                         let toId = dictionnary["toId"] as? String,
-                        let text = dictionnary["text"] as? String,
-                        let name = dictionnary["name"] as? String else {
+                        let humidity = dictionnary["recordedHumidity"] as? String,
+                        let temperature = dictionnary["recordedTemperature"] as? String,
+                        let heartbeat = dictionnary["recordedHeartBeat"] as? String
+                        else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
+                     let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, recordedHeartBeat: heartbeat, recordedHumidity : humidity ,recordedTemperature : temperature , quiz: [])
                    conversation.conversationId = conversationId
                     if conversation.conversationParnerId() == self.userId {
                         if (self.conversationSegmentedControl.selectedSegmentIndex == 1 && conversation.fromId == Auth.auth().currentUser?.uid) {
@@ -96,6 +98,7 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
         let conversation = conversations[indexPath.row]
         quizzAnswerViewController.uid = conversation.toId
         quizzAnswerViewController.conversationId = conversation.conversationId
+        quizzAnswerViewController.fromFlirts = true
         navigationController?.pushViewController(quizzAnswerViewController, animated: true)
     }
     

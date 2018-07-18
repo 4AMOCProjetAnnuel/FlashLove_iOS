@@ -119,7 +119,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             var likes : Int?
             var views : Int?
             
-            usersReference.observeSingleEvent(of: .value, with: { (snapshot) in
+           /* usersReference.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String : Any] {
                     flirts = dictionary["flirts"] as? Int
                     likes = dictionary["likes"] as? Int
@@ -134,11 +134,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                         views = 0
                     }
                 }
-            }, withCancel: nil)
+            }, withCancel: nil)*/
             
             
             let imageUrl = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400).absoluteString
-            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": views, "likes": likes, "flirts" : flirts, "single" : false,"description" :"","age" : "","picture" : "","profileCompleted" : false, "heartbeat" : 0, "humidity" : 0, "temperature" : 0] as [String : Any]
+            let values = ["uid": uid,"displayName" : user?.displayName, "email": user?.email, "photoUrl" : imageUrl, "views": 0, "likes": 0, "flirts" : 0, "single" : false,"description" :"","age" : "","picture" : "","profileCompleted" : false, "heartbeat" : "", "humidity" : "", "temperature" : ""] as [String : Any]
                         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil {
                     print(err)
@@ -232,7 +232,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func handleDeeplink(title : String, uid : String, conversationId : String?){
-        if (title == "Flash Alert"){
+        if (title == "Flash alert"){
             let profileViewController = ProfileViewController()
             profileViewController.uid = uid
             let tabBar = FlashLuvTabBarController()
@@ -241,13 +241,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             })
             
         }
-        if (title == "Quiz Alert"){
+        if (title == "Quiz alert"){
             /*let quizAnswersViewController = QuizzAnswerViewController()
             guard let convId = conversationId else {return}
             quizAnswersViewController.conversationId = convId*/
             let conversationByUser = ConversationByUserViewController()
             conversationByUser.userId = uid
-            guard let convId = conversationId else {return}
             let tabBar = FlashLuvTabBarController()
             window?.rootViewController?.present(tabBar, animated: false, completion: {
                 tabBar.userConnectedProfileViewController.pushViewController(conversationByUser, animated: true)
@@ -295,11 +294,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-        
-        guard let userId = userInfo["flashingUserId"] as? String else {
+        print(userInfo["flashedUserId"])
+        guard let userId = userInfo["flashedUserId"] as? String else {
             return
         }
-    
+        print(userId)
         let conversationId =  userInfo["conversationId"] as? String
         handleDeeplink(title : notificationTitle, uid : userId, conversationId: conversationId)
         // Print full message.

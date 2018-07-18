@@ -43,11 +43,14 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                     guard let fromId = dictionnary["fromId"] as? String,
                         let timestamp = dictionnary["timestamp"] as? NSNumber,
                         let toId = dictionnary["toId"] as? String,
-                        let text = dictionnary["text"] as? String,
-                        let name = dictionnary["name"] as? String else {
+                        let humidity = dictionnary["recordedHumidity"] as? String,
+                        let temperature = dictionnary["recordedTemperature"] as? String,
+                        let heartbeat = dictionnary["recordedHeartBeat"] as? String
+                        else {
                             return
                     }
-                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
+                    
+                    let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, recordedHeartBeat: heartbeat, recordedHumidity : humidity ,recordedTemperature : temperature , quiz: [])
                     print(snapshot)
                     conversation.conversationId = snapshot.key
                     self.conversationsDictionnary[toId] = conversation
@@ -64,19 +67,18 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
             }, withCancel: nil)
         }, withCancel: nil)
     }
-    func observeConversations(){
+    /*func observeConversations(){
         let reference = Database.database().reference().child("conversations")
         reference.observe(.childAdded, with: { (snapshot) in
             print(snapshot)
             if let dictionnary = snapshot.value as? [String : Any] {
                 guard let fromId = dictionnary["fromId"] as? String,
                     let timestamp = dictionnary["timestamp"] as? NSNumber,
-                    let toId = dictionnary["toId"] as? String,
-                    let text = dictionnary["text"] as? String,
-                    let name = dictionnary["name"] as? String else {
+                    let toId = dictionnary["toId"] as? String
+                    else {
                         return
                 }
-                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, text: text, name: name, quiz: [])
+                let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, quiz: [])
                 conversation.conversationId = snapshot.key
                 print(snapshot)
                 //self.conversations.append(conversation)
@@ -92,7 +94,7 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                 
             }
         }, withCancel: nil)
-    }
+    }*/
     func setupNavigationController(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
         Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
@@ -165,4 +167,5 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
         conversationByUser.userId = conversationPartnerId
         navigationController?.pushViewController(conversationByUser, animated: true)
     }
+    
 }

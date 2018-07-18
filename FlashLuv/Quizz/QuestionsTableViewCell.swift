@@ -24,6 +24,8 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
         setupView()
         answerTextView.delegate = self
         registerAnswer.addTarget(self, action: #selector(setQuiz), for: .touchUpInside)
+        
+        
     }
 
     func textViewDidChange(textView: UITextView) {
@@ -53,7 +55,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
             let reponse = answerTextView.text else {
                 return
         }
-        let values = ["question": question, "reponse": reponse ] as [String : Any]
+        let values = ["question": question, "response": reponse ] as [String : Any]
         quizReference.updateChildValues(values) { (err, ref) in
             if err != nil {
                 print(err)

@@ -32,10 +32,10 @@ class CustomNotifications {
                 "to": fcmToken,
                 "notification" : [
                     "body" : "You've just been flashed by",
-                    "title": "Quiz Alert"
+                    "title": "Quiz alert"
                 ],
                 "data" : [
-                    "conversationId" : "\(conversationId)",
+                    //"conversationId" : "\(conversationId)",
                     "flashedUserId" : "\(uid)",
                     "flashingUserId" : Auth.auth().currentUser?.uid
                 ],
@@ -45,7 +45,7 @@ class CustomNotifications {
                 "to": fcmToken,
                 "notification" : [
                     "body" : "You've just been flashed by",
-                    "title": "Flash Alert"
+                    "title": "Flash alert"
                 ],
                 "data" : [
                     "flashedUserId" : "\(uid)",

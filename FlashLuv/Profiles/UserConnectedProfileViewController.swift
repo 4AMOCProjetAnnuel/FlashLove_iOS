@@ -102,7 +102,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         label.placeholder = "Age"
         label.font = UIFont(name: "Lato-Regular", size: 18)
         label.textAlignment = .center
-        label.keyboardType = UIKeyboardType.numbersAndPunctuation
+        label.keyboardType = UIKeyboardType.numberPad
         label.layer.cornerRadius = 4
         label.layer.borderWidth = 0.2
         label.layer.borderColor = UIColor.darkGray.cgColor
@@ -208,6 +208,33 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         return label
     }()
     
+    let numberOfFlirtsContainer : UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        return container
+    }()
+    
+    let numberOfFlirtsImageView : UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "feu")
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = imageView.image!.withRenderingMode(.alwaysTemplate)
+        imageView.tintColor = UIColor().getPrimaryPinkDark()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    let numberOfFlirtsLabel : UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        label.textAlignment = .center
+        label.textColor = UIColor().getPrimaryPinkDark()
+        label.font =  UIFont(name: "Lato-Regular", size: 18)
+        return label
+    }()
+    
+    
     let likeContainer : UIView = {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
@@ -266,7 +293,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     
     func getUserInfoFromFirebase() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
             if let userFieldDictionnary = snapshot.value as? [String: Any]{
                 self.nameLabel.text = userFieldDictionnary["displayName"] as? String
@@ -285,6 +312,10 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
                     return
                 }
                 self.numberOfLikeLabel.text = "\(likes)"
+                guard let flirts = userFieldDictionnary["flirts"] as? Int else {
+                    return
+                }
+                self.numberOfFlirtsLabel.text = "\(flirts)"
                 guard let link = userFieldDictionnary["photoUrl"] as? String else {
                     return
                 }
@@ -505,8 +536,22 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
         numberOfLikeLabel.bottomAnchor.constraint(equalTo: likeContainer.bottomAnchor, constant: 0).isActive = true
         numberOfLikeLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
+        numberOfFlirtsContainer.addSubview(numberOfFlirtsImageView)
+        numberOfFlirtsContainer.addSubview(numberOfFlirtsLabel)
+        
+        numberOfFlirtsImageView.topAnchor.constraint(equalTo: numberOfFlirtsContainer.topAnchor, constant: 0).isActive = true
+        numberOfFlirtsImageView.leadingAnchor.constraint(equalTo: numberOfFlirtsContainer.leadingAnchor, constant: 0).isActive = true
+        numberOfFlirtsImageView.trailingAnchor.constraint(equalTo: numberOfFlirtsContainer.trailingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.topAnchor.constraint(equalTo: numberOfFlirtsImageView.bottomAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.trailingAnchor.constraint(equalTo: numberOfFlirtsImageView.trailingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.leadingAnchor.constraint(equalTo: numberOfFlirtsImageView.leadingAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.bottomAnchor.constraint(equalTo: numberOfFlirtsContainer.bottomAnchor, constant: 0).isActive = true
+        numberOfFlirtsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        
         buttonStackView.addArrangedSubview(numberOfViewContainer)
         buttonStackView.addArrangedSubview(likeContainer)
+        buttonStackView.addArrangedSubview(numberOfFlirtsContainer)
         
         buttonStackView.distribution = .fillEqually
         buttonStackView.spacing = 15

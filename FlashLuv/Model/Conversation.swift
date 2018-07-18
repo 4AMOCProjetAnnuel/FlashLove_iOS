@@ -13,22 +13,21 @@ class Conversation: NSObject {
     var fromId : String?
     var timestamp : NSNumber?
     var toId : String?
-    var text : String?
-    var name : String?
-    var recordedHeartBeat : Float? = 50
-    var recordedHumidity : Float? = 50
-    var recordedTemperature : Float? = 50
+    var recordedHeartBeat : String?
+    var recordedHumidity : String?
+    var recordedTemperature : String?
     var quiz : [QuizItem]?
     var conversationId : String?
     
 
-    init( fromId : String, timestamp : NSNumber, toId : String, text : String, name : String, quiz : [QuizItem] ) {
+    init( fromId : String, timestamp : NSNumber, toId : String, recordedHeartBeat : String, recordedHumidity : String,recordedTemperature : String , quiz : [QuizItem] ) {
         self.fromId = fromId
         self.timestamp = timestamp
         self.toId = toId
-        self.text = text
-        self.name = name
         self.quiz = quiz
+        self.recordedHumidity = recordedHumidity
+        self.recordedHeartBeat = recordedHeartBeat
+        self.recordedTemperature = recordedTemperature
     }
     
     func conversationParnerId () -> String? {
