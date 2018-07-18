@@ -54,7 +54,7 @@ class ConversationsTableViewCell: UITableViewCell {
         userImageView.layer.cornerRadius = 50
         userImageView.contentMode = .scaleAspectFit
         userImageView.clipsToBounds = true
-        
+        userImageView.isHidden = true
         userName.font = UIFont(name: "Lato-Regular", size: 18)
         userName.textColor = UIColor().getPrimaryPinkDark()
         addSubview(timeLabel)
