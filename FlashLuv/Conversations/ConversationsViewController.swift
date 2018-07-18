@@ -36,7 +36,7 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
         let ref = Database.database().reference().child("user-conversations").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
             let conversationId = snapshot.key
-            let conversationReference = Database.database().reference().child("conversations").child(conversationId)
+            let conversationReference = Database.database().reference().child("conversations").child(conversationId).queryOrdered(byChild: "timestamp")
             conversationReference.observe(.value, with: { (snapshot) in
                 print(snapshot)
                 if let dictionnary = snapshot.value as? [String : Any] {
@@ -53,7 +53,8 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
                     let conversation = Conversation(fromId: fromId, timestamp: timestamp, toId: toId, recordedHeartBeat: heartbeat, recordedHumidity : humidity ,recordedTemperature : temperature , quiz: [])
                     print(snapshot)
                     conversation.conversationId = snapshot.key
-                    self.conversationsDictionnary[toId] = conversation
+                    guard let id = conversation.conversationParnerId() else {return}
+                    self.conversationsDictionnary[id] = conversation
                     self.conversations = Array(self.conversationsDictionnary.values)
                     self.conversations.sort(by: { (conversation1, conversation2) -> Bool in
                         guard let tsc1 = conversation1.timestamp?.intValue, let tsc2 = conversation2.timestamp?.intValue else {
@@ -97,12 +98,12 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
     }*/
     func setupNavigationController(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observe(DataEventType.value, with: { (snapshot) in
             print(snapshot)
             if let userFiledDictionnary = snapshot.value as? [String: Any]{
                 self.navigationItem.title = userFiledDictionnary["displayName"] as? String
             }
-        }, withCancel: nil)
+        })
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
@@ -146,6 +147,7 @@ class ConversationsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ConversationsTableViewCell
         let conversation = conversations[indexPath.row]
+        print(conversations)
        cell.conversation = conversation
         
         return cell

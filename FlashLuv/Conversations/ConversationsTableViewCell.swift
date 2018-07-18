@@ -51,10 +51,12 @@ class ConversationsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        userImageView.layer.cornerRadius = 50
+        userImageView.contentMode = .scaleAspectFit
+        userImageView.clipsToBounds = true
         
         userName.font = UIFont(name: "Lato-Regular", size: 18)
-        userName.textColor = .white
-        userImageView.layer.cornerRadius = userImageView.frame.width / 2 
+        userName.textColor = UIColor().getPrimaryPinkDark()
         addSubview(timeLabel)
         timeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         timeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true

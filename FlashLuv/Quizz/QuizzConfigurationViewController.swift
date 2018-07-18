@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class QuizzConfigurationViewController: UIViewController {
-
+    
     
     @IBOutlet weak var quizzViewTitle: UILabel!
     @IBOutlet weak var quizzDescription: UILabel!
@@ -34,13 +34,13 @@ class QuizzConfigurationViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     func setupView(){
         let titleFont = UIFont(name: "Lato-Bold", size: 22)
         let descrptionFont = UIFont(name: "Lato-Bold", size: 17)
@@ -72,7 +72,7 @@ class QuizzConfigurationViewController: UIViewController {
         }, withCancel: nil)
     }
     @objc func registerModificationsToFirebase() {
-    print("test zer")
+        print("test zer")
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard
             let question1 = question1TextField.text,
@@ -98,5 +98,5 @@ class QuizzConfigurationViewController: UIViewController {
         })
         
     }
-
+    
 }

@@ -28,11 +28,6 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
         
     }
 
-    func textViewDidChange(textView: UITextView) {
-        if (textView == answerTextView) {
-            answer = answerTextView.text
-        }
-    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -55,6 +50,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
             let reponse = answerTextView.text else {
                 return
         }
+    if (!answerTextView.text.elementsEqual("")) {
         let values = ["question": question, "response": reponse ] as [String : Any]
         quizReference.updateChildValues(values) { (err, ref) in
             if err != nil {
@@ -63,6 +59,7 @@ class QuestionsTableViewCell: UITableViewCell, UITextViewDelegate{
                
             }
         }
+    }
         
     }
     

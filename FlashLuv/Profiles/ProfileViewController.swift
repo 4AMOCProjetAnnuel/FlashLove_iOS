@@ -338,7 +338,7 @@ class ProfileViewController: UIViewController {
     func getUserInfoFromFirebase() {
         //guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let uid = uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observe( DataEventType.value, with: { (snapshot) in
             print(snapshot)
             if let userFieldDictionnary = snapshot.value as? [String: Any]{
                 self.navigationItem.title = userFieldDictionnary["displayName"] as? String
@@ -348,12 +348,22 @@ class ProfileViewController: UIViewController {
                 guard let views = userFieldDictionnary["views"] as? Int else {
                     return
                 }
+                guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.profileImageView.downloadedFrom(link: link)
+                
                 self.numberOfViewLabel.text = "\(views)"
                 guard let likes = userFieldDictionnary["likes"] as? Int else {
                     return
                 }
+                
                 self.numberOflikes = likes
                 self.numberOfLikeLabel.text = "\(likes)"
+                guard let flirts = userFieldDictionnary["flirts"] as? Int else {
+                    return
+                }
+                self.numberOfFlirtsLabel.text = "\(flirts)"
                 guard let ageInt = userFieldDictionnary["age"] as? Int else {
                     return
                 }
@@ -367,12 +377,9 @@ class ProfileViewController: UIViewController {
                     couple.append(ageString)
                     self.situationLabel.text = couple
                 }
-                guard let link = userFieldDictionnary["photoUrl"] as? String else {
-                    return
-                }
-                self.profileImageView.downloadedFrom(link: link)
+               
             }
-        }, withCancel: nil)
+        })
     }
     
     @objc func updatelikesCount(){
@@ -388,23 +395,32 @@ class ProfileViewController: UIViewController {
                 if (currentNumberOfLikes == nil) {
                     currentNumberOfLikes = 0
                 }
-                let counter = currentNumberOfLikes! + 1 
-                let values = ["likes" : counter] as [String : Any]
+                self.updateViewLikes(uid: uid, currentNumberOfLikes!)
                 
-                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                    if err != nil {
-                        print(err)
-                        return
-                    }
-                    
-                    print("User Modified")
-                })
+                
+                
             }
         }, withCancel: nil)
-        
+     
      
        
         
+    }
+    func updateViewLikes(uid : String, _ currentNumberOfViews: Int){
+        let ref = Database.database().reference(fromURL: "https://flashloveapi.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        let counter = currentNumberOfViews + 1
+        let values = ["likes" : counter] as [String : Any]
+        
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err)
+                return
+            }
+            self.numberOfLikeLabel.text = "\(counter)"
+            
+            print("User Modified")
+        })
     }
     
     @objc func chatLogController(){

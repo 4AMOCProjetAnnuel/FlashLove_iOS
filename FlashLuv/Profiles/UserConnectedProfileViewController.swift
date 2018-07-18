@@ -293,7 +293,35 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     
     func getUserInfoFromFirebase() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observe(.value) { (snapshot) in
+            if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                self.nameLabel.text = userFieldDictionnary["displayName"] as? String
+                self.emailTextView.text = userFieldDictionnary["email"] as? String
+                self.ageTextField.text = userFieldDictionnary["age"] as? String
+                self.descriptionTextView.text = userFieldDictionnary["description"] as? String
+                guard let single = userFieldDictionnary["single"] as? Bool else {
+                    return
+                }
+                self.celibataireSwitch.isOn = single
+                guard let views = userFieldDictionnary["views"] as? Int else {
+                    return
+                }
+                self.numberOfViewLabel.text = "\(views)"
+                guard let likes = userFieldDictionnary["likes"] as? Int else {
+                    return
+                }
+                self.numberOfLikeLabel.text = "\(likes)"
+                guard let flirts = userFieldDictionnary["flirts"] as? Int else {
+                    return
+                }
+                self.numberOfFlirtsLabel.text = "\(flirts)"
+                guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.profileImageView.downloadedFrom(link: link)
+            }
+        }
+       /* Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             print(snapshot)
             if let userFieldDictionnary = snapshot.value as? [String: Any]{
                 self.nameLabel.text = userFieldDictionnary["displayName"] as? String
@@ -321,7 +349,7 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
                 }
                 self.profileImageView.downloadedFrom(link: link)
             }
-        }, withCancel: nil)
+        }, withCancel: nil)*/
     }
     
     @objc func setupQuizz(){
@@ -354,16 +382,16 @@ class UserConnectedProfileViewController: UIViewController, UITextViewDelegate, 
     
     func setupNavigationController(){
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+        Database.database().reference().child("users").child(uid).observe(DataEventType.value, with: { (snapshot) in
             print(snapshot)
             if let userFiledDictionnary = snapshot.value as? [String: Any]{
                 self.navigationItem.title = userFiledDictionnary["displayName"] as? String
             }
-        }, withCancel: nil)
+        })
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor().getPrimaryPinkDark()
-       navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(chatLogController))
+       //navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings"), style: .plain, target: self, action: #selector(chatLogController))
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "shutdown"), style: .plain, target: self, action: #selector(handleLogout))
         checkIfUserIsLoggedIn()
     }

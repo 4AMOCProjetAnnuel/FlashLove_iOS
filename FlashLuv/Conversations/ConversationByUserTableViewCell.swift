@@ -106,11 +106,11 @@ class ConversationByUserTableViewCell: UITableViewCell {
             if fromId == Auth.auth().currentUser?.uid {
                 guard let id = conversation?.conversationParnerId() else {return}
                 getUserName(uid: id)
-                self.backgroundColor = .white
+
             }else {
                 guard let id = fromId else {return}
                 getUserName(uid: id)
-                self.backgroundColor = .yellow
+                
             }
             
             temperatureLabel.text = conversation?.recordedTemperature
@@ -145,7 +145,7 @@ class ConversationByUserTableViewCell: UITableViewCell {
     func getUserName(uid : String) {
         
         let ref = Database.database().reference().child("users").child(uid)
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.observe(.value, with: { (snapshot) in
             if let dictonnary = snapshot.value as? [String : Any] {
                 self.profileName.text = dictonnary["displayName"] as? String
                 guard let link = dictonnary["photoUrl"] as? String else {
@@ -154,7 +154,7 @@ class ConversationByUserTableViewCell: UITableViewCell {
                 self.profileImageView.downloadedFrom(link: link)
             }
             
-        }, withCancel: nil)
+        })
       
     }
     func setUpLayout(){

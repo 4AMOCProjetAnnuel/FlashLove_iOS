@@ -44,7 +44,7 @@ class ConversationByUserViewController: UIViewController, UITableViewDelegate, U
         let userConversationsRef = Database.database().reference().child("user-conversations").child(uid)
         userConversationsRef.observe(.childAdded, with: { (snapshot) in
             let conversationId = snapshot.key
-            let conversationsRef = Database.database().reference().child("conversations").child(conversationId)
+            let conversationsRef = Database.database().reference().child("conversations").child(conversationId).queryOrdered(byChild: "timestamp")
             conversationsRef.observe(.value, with: { (snapshot) in
                 if let dictionnary = snapshot.value as? [String : Any] {
                     guard let fromId = dictionnary["fromId"] as? String,

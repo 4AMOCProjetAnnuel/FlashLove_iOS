@@ -210,6 +210,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
+    let notificationTitle = "Flash alert"
+    
+    print(notificationTitle)
+    print(userInfo)
+    // Print message ID.
+    if let messageID = userInfo[gcmMessageIDKey] {
+        print("Message ID: \(messageID)")
+    }
+    print(userInfo["flashedUserId"])
+    guard let userId = userInfo["flashedUserId"] as? String else {
+        return
+    }
+    print(userId)
+    let conversationId =  userInfo["conversationId"] as? String
+    handleDeeplink(title : notificationTitle, uid : userId, conversationId: conversationId)
+    // Print full message.
+    print(userInfo)
+    
         
         // Print full message.
         print(userInfo)
@@ -237,8 +255,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             profileViewController.uid = uid
             let tabBar = FlashLuvTabBarController()
             window?.rootViewController?.present(tabBar, animated: false, completion: {
-                tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
+        tabBar.userConnectedProfileViewController.pushViewController(profileViewController, animated: true)
             })
+            
             
         }
         if (title == "Quiz alert"){

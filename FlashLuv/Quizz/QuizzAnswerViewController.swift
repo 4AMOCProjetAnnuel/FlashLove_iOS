@@ -11,7 +11,7 @@ import Firebase
 //import Messages
 
 class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
-   
+    
     
     
     @IBOutlet weak var dataStackView: UIStackView!
@@ -117,15 +117,15 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         setupView()
         getUserInfoFromFirebase()
         userImageView.backgroundColor = .yellow
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func setupView(){
         navigationItem.title = "Quizz"
         let titleFont = UIFont(name: "Lato-Bold", size: 22)
@@ -135,7 +135,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         saveButton.isHidden = true
         dataStackView.backgroundColor = .white
         let imagesSize : CGFloat = 40
-       
+        
         heartBeatViewContainer.addSubview(heartBeatImageView)
         heartBeatViewContainer.addSubview(heartBeatLabel)
         
@@ -185,7 +185,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         //timeLabel.trailingAnchor.constraint(equalTo: dataCapteurStackView.trailingAnchor).isActive = true
         // timeLabel.centerYAnchor.constraint(equalTo: dataCapteurStackView.centerYAnchor).isActive = true
         //timeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
-  
+        
         
         dataStackView.addArrangedSubview(heartBeatViewContainer)
         dataStackView.addArrangedSubview(temperatureViewContainer)
@@ -201,36 +201,44 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         //guard let uid = Auth.auth().currentUser?.uid else {return}
         
         if (conversationId == nil) {
-        guard let uid = uid else {return}
-        Database.database().reference().child("users").child(uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-            print(snapshot)
-            if let userFieldDictionnary = snapshot.value as? [String: Any]{
-                guard let displayName = userFieldDictionnary["displayName"] as? String else {
-                    return
+            guard let uid = uid else {return}
+            Database.database().reference().child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                    guard let displayName = userFieldDictionnary["displayName"] as? String else {
+                        return
+                    }
+                    self.quizzViewTitle.text = "Bienvenue sur le Quizz de \(displayName)"
+                    guard let userQuestions = userFieldDictionnary["questions"] as? [String] else {
+                        return
+                    }
+                    
+                    self.questions = userQuestions
+                    self.questionsTableView.reloadData()
+                    guard let flirts = userFieldDictionnary["flirts"] as? Int else {
+                        return
+                    }
+                    self.updateFlirtCount(uid : uid,flirts)
+                    guard let link = userFieldDictionnary["photoUrl"] as? String else {
+                        return
+                    }
+                    self.userImageView.downloadedFrom(link: link)
+                    
                 }
-                self.quizzViewTitle.text = "Bienvenue sur le Quizz de \(displayName)"
-                guard let userQuestions = userFieldDictionnary["questions"] as? [String] else {
-                    return
+            }, withCancel: nil)
+           
+            
+          
+            Database.database().reference().child("users").child(uid).observe( DataEventType.value, with: { (snapshot) in
+                print(snapshot)
+                if let userFieldDictionnary = snapshot.value as? [String: Any]{
+                    self.humidityLabel.text = userFieldDictionnary["humidity"] as? String
+                    self.temperatureLabel.text = userFieldDictionnary["temperature"] as? String
+                    self.heartBeatLabel.text = userFieldDictionnary["heartbeat"] as? String
+                   
                 }
-                
-                self.questions = userQuestions
-                self.questionsTableView.reloadData()
-                guard let flirts = userFieldDictionnary["flirts"] as? Int else {
-                    return
-                }
-                self.updateFlirtCount(uid : uid,flirts)
-                self.humidityLabel.text = userFieldDictionnary["humidity"] as? String
-                self.temperatureLabel.text = userFieldDictionnary["temperature"] as? String
-                self.heartBeatLabel.text = userFieldDictionnary["heartbeat"] as? String
-                guard let link = userFieldDictionnary["photoUrl"] as? String else {
-                    return
-                }
-                self.userImageView.downloadedFrom(link: link)
-                
-                
-            }
-        }, withCancel: nil)
-        createConversation()
+            })
+            createConversation()
         }else {
             guard let id = self.conversationId else { return }
             let conversationReference = Database.database().reference().child("conversations").child(id)
@@ -257,31 +265,31 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             let quizReference = conversationReference.child("quiz")
             quizReference.observe(.value, with: { (snapshot) in
                 print(snapshot)
-
+                
                 
                 if let dictionnary = snapshot.value as? [String : Any] {
                     print(snapshot)
-                   
+                    
                     for child in snapshot.children {
                         let snap = child as! DataSnapshot
                         let key = snap.key
                         let value = snap.value
                         print("key = \(key)  value = \(value!)")
                         if let childDictionnary = value as? [String : Any] {
-                        guard let question = childDictionnary["question"] as? String,
-                            let reponse = childDictionnary["response"] as? String else {
-                                return
-                        }
-                        self.questions.append(question)
-                        self.reponses.append(reponse)
-                        self.questionsTableView.reloadData()
+                            guard let question = childDictionnary["question"] as? String,
+                                let reponse = childDictionnary["response"] as? String else {
+                                    return
+                            }
+                            self.questions.append(question)
+                            self.reponses.append(reponse)
+                            self.questionsTableView.reloadData()
                         }
                     }
                     
                     
                 }
             }, withCancel: nil)
-                    
+            
         }
     }
     
@@ -311,7 +319,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         //cell.questionLabel.text = uid
-       cell.answerTextView.delegate = self
+        cell.answerTextView.delegate = self
         
         return cell
     }
@@ -324,7 +332,7 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     
-
+    
     func createConversation() {
         guard
             let toId = uid,
@@ -332,49 +340,49 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
         let userRef = Database.database().reference().child("users").child(toId)
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             
-        if let userDictionnary = snapshot.value as? [String : Any] {
+            if let userDictionnary = snapshot.value as? [String : Any] {
                 
-           var humidity = userDictionnary["humidity"] as? String
-            if (humidity == nil) {
-                humidity = "50"
+                var humidity = userDictionnary["humidity"] as? String
+                if (humidity == nil || (humidity?.elementsEqual(""))!){
+                    humidity = "50"
+                }
+                var heartbeat = userDictionnary["heartbeat"] as? String
+                if (heartbeat == nil || (heartbeat?.elementsEqual(""))!) {
+                    heartbeat = "50"
+                }
+                var temperature = userDictionnary["temperature"] as? String
+                if (temperature == nil || (temperature?.elementsEqual(""))!) {
+                    temperature = "50"
+                }
+                
+                guard let link = userDictionnary["photoUrl"] as? String else {
+                    return
+                }
+                self.userImageView.downloadedFrom(link: link)
+                
+                let ref = Database.database().reference().child("conversations")
+                let childRef = ref.childByAutoId()
+                let timeStamp = Date().timeIntervalSince1970 as NSNumber
+                let values = [ "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : heartbeat, "recordedHumidity" : humidity, "recordedTemperature" : temperature] as [String : Any]
+                
+                
+                childRef.updateChildValues(values) { (err, ref) in
+                    if err != nil {
+                        print(err)
+                        return
+                    }
+                    
+                }
+                
+                let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
+                let conversationId = childRef.key
+                userConversationsRef.updateChildValues([conversationId : 1])
+                
+                let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
+                recipientUserConversationsRef.updateChildValues([conversationId : 1])
+                self.newConversationId = conversationId
+                self.setNotification(conversationId: conversationId)
             }
-           var heartbeat = userDictionnary["heartbeat"] as? String
-            if (heartbeat == nil) {
-                heartbeat = "50"
-            }
-           var temperature = userDictionnary["temperature"] as? String
-            if (temperature == nil) {
-                temperature = "50"
-            }
-            
-            guard let link = userDictionnary["photoUrl"] as? String else {
-                return
-            }
-            self.userImageView.downloadedFrom(link: link)
-        
-        let ref = Database.database().reference().child("conversations")
-        let childRef = ref.childByAutoId()
-        let timeStamp = Date().timeIntervalSince1970 as NSNumber
-        let values = [ "toId" : toId, "fromId" : fromId, "timestamp": timeStamp, "recordedHeartBeat" : heartbeat, "recordedHumidity" : humidity, "recordedTemperature" : temperature] as [String : Any]
-        
-        
-        childRef.updateChildValues(values) { (err, ref) in
-            if err != nil {
-                print(err)
-                return
-            }
-            
-        }
-        
-        let userConversationsRef = Database.database().reference().child("user-conversations").child(fromId)
-        let conversationId = childRef.key
-        userConversationsRef.updateChildValues([conversationId : 1])
-        
-        let recipientUserConversationsRef = Database.database().reference().child("user-conversations").child(toId)
-        recipientUserConversationsRef.updateChildValues([conversationId : 1])
-        self.newConversationId = conversationId
-        self.setNotification(conversationId: conversationId)
-             }
         }, withCancel: nil)
     }
     
@@ -393,8 +401,8 @@ class QuizzAnswerViewController: UIViewController, UITableViewDelegate, UITableV
             print("User Modified")
         })
     }
-
-
+    
+    
     func setNotification(conversationId : String) {
         guard let id = uid else {return}
         Database.database().reference().child("users").child(id).observeSingleEvent(of: .value, with: { (snapshot) in

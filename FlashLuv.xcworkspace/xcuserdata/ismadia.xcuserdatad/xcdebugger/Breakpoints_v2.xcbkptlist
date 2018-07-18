@@ -42,23 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.299392"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "found(code:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.2994829"
+            timestampString = "553588018.4603159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -74,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.299552"
+            timestampString = "553588018.460431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "142"
@@ -153,7 +137,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4146169"
+            timestampString = "553588018.460536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
@@ -185,7 +169,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.299665"
+            timestampString = "553588018.46099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
@@ -201,7 +185,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.299726"
+            timestampString = "553588018.461072"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -249,7 +233,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.299785"
+            timestampString = "553588018.461147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -425,11 +409,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.41673"
+            timestampString = "553588018.461367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "messaging(_:didReceiveRegistrationToken:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -441,7 +425,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4171439"
+            timestampString = "553588018.461702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -457,11 +441,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4176"
+            timestampString = "553588018.461974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -489,7 +473,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.418062"
+            timestampString = "553588018.46228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "197"
@@ -537,7 +521,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.300059"
+            timestampString = "553588018.462602"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "136"
@@ -553,7 +537,7 @@
                   moduleName = "FlashLuv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/PhotoViewController.swift"
-                  timestampString = "553573501.748674"
+                  timestampString = "553587754.502416"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -568,7 +552,7 @@
                   moduleName = "FlashLuv"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/PhotoViewController.swift"
-                  timestampString = "553573501.751034"
+                  timestampString = "553587754.507226"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "136"
@@ -585,7 +569,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.300127"
+            timestampString = "553588018.4626859"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -601,11 +585,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4194911"
+            timestampString = "553588018.462799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -617,11 +601,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4199229"
+            timestampString = "553588018.463106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -633,11 +617,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.420364"
+            timestampString = "553588018.463376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -665,7 +649,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.300235"
+            timestampString = "553588018.463678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -681,7 +665,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.300292"
+            timestampString = "553588018.463807"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -697,7 +681,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.300347"
+            timestampString = "553588018.463881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -873,7 +857,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.300501"
+            timestampString = "553588018.464084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -889,7 +873,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.300894"
+            timestampString = "553588018.464144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -905,7 +889,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.301162"
+            timestampString = "553588018.464196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -917,59 +901,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.30145"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.302626"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.303573"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.3044699"
+            timestampString = "553588018.464247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -984,72 +920,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.304742"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.306023"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.3069741"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.307864"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationsViewController.swift"
-            timestampString = "553573501.308847"
+            timestampString = "553588018.464303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -1064,60 +936,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.308912"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.309834"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.3107049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.311558"
+            timestampString = "553588018.464373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "setQuiz()"
             landmarkType = "7">
             <Locations>
@@ -1160,44 +984,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.311859"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.313279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.314383"
+            timestampString = "553588018.464749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "setQuiz()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1209,11 +1001,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.314678"
+            timestampString = "553588018.465006"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "setQuiz()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1225,11 +1017,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.314948"
+            timestampString = "553588018.465265"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "setQuiz()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1238,142 +1030,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.3152519"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
-            landmarkName = "setNotification(conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.316201"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
-            landmarkName = "setNotification(conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.317386"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.318293"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
-            landmarkName = "setNotification(conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.319295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "setNotification(conversationId:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlashLuv.QuizzAnswerViewController.setNotification(conversationId: Swift.String) -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Quizz/QuizzAnswerViewController.swift"
-                  timestampString = "553306946.385759"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "208"
-                  endingLineNumber = "208"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in FlashLuv.QuizzAnswerViewController.setNotification(conversationId: Swift.String) -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Quizz/QuizzAnswerViewController.swift"
-                  timestampString = "553306946.387653"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "209"
-                  endingLineNumber = "209"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.438374"
+            timestampString = "553588018.465525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.438833"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "298"
-            endingLineNumber = "298"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1384,13 +1048,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.320223"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.465927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
-            landmarkName = "setNotification(conversationId:)"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1401,11 +1065,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.439821"
+            timestampString = "553588018.466221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "handleDeeplink(title:uid:conversationId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1417,156 +1081,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.440258"
+            timestampString = "553588018.4664969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
             landmarkName = "handleDeeplink(title:uid:conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.3211271"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.321981"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlashLuv.QuizzAnswerViewController.createConversation() -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Quizz/QuizzAnswerViewController.swift"
-                  timestampString = "553388901.735698"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "195"
-                  endingLineNumber = "195"
-                  offsetFromSymbolStart = "1676">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;, __ObjC.DatabaseReference) -&gt; () in FlashLuv.QuizzAnswerViewController.createConversation() -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Quizz/QuizzAnswerViewController.swift"
-                  timestampString = "553388901.73759"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.322821"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "364"
-            endingLineNumber = "364"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.323647"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.324473"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "362"
-            endingLineNumber = "362"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.3253"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "368"
-            endingLineNumber = "368"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.326257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
-            landmarkName = "createConversation()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1577,7 +1097,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.327296"
+            timestampString = "553588018.466773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -1593,7 +1113,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.327572"
+            timestampString = "553588018.466835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -1609,7 +1129,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.327827"
+            timestampString = "553588018.46689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -1625,7 +1145,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.328185"
+            timestampString = "553588018.466946"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -1641,7 +1161,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.328558"
+            timestampString = "553588018.467751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -1657,7 +1177,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.328873"
+            timestampString = "553588018.468417"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
@@ -1673,7 +1193,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.32915"
+            timestampString = "553588018.469079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
@@ -1721,7 +1241,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.32943"
+            timestampString = "553588018.470309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -1737,7 +1257,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.3294801"
+            timestampString = "553588018.47112"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -1753,7 +1273,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.329523"
+            timestampString = "553588018.471838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -1769,7 +1289,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.329564"
+            timestampString = "553588018.47254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -1785,7 +1305,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.329604"
+            timestampString = "553588018.472991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -1801,7 +1321,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.329644"
+            timestampString = "553588018.473411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -1813,47 +1333,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
-            timestampString = "553569528.475777"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "371"
-            endingLineNumber = "371"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
-            timestampString = "553569528.4776061"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "373"
-            endingLineNumber = "373"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.788738"
+            timestampString = "553588018.473839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1865,7 +1353,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.448303"
+            timestampString = "553588018.473904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -1881,7 +1369,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.448893"
+            timestampString = "553588018.474207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -1897,7 +1385,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.449603"
+            timestampString = "553588018.474467"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -1913,7 +1401,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.450197"
+            timestampString = "553588018.4747241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -1929,7 +1417,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.450713"
+            timestampString = "553588018.474977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
@@ -1945,7 +1433,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.451349"
+            timestampString = "553588018.475228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -1961,7 +1449,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.451905"
+            timestampString = "553588018.475479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "124"
@@ -1973,91 +1461,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.329824"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.330793"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.331799"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.332708"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/ProfileViewController.swift"
-            timestampString = "553569528.4940079"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "updatelikesCount()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
-            timestampString = "553569528.495874"
+            timestampString = "553588018.475733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "395"
@@ -2073,7 +1481,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.333637"
+            timestampString = "553588018.475806"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
@@ -2089,7 +1497,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.333703"
+            timestampString = "553588018.475886"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -2105,7 +1513,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.333759"
+            timestampString = "553588018.475963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -2121,7 +1529,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.333813"
+            timestampString = "553588018.476034"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -2137,7 +1545,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/PhotoViewController.swift"
-            timestampString = "553573501.333866"
+            timestampString = "553588018.476104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -2153,7 +1561,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4598939"
+            timestampString = "553588018.476174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -2169,11 +1577,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.7922111"
+            timestampString = "553588018.476442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "331"
+            endingLineNumber = "331"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2185,11 +1593,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.792474"
+            timestampString = "553588018.4765019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2201,11 +1609,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.792726"
+            timestampString = "553588018.476555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2217,11 +1625,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.7929749"
+            timestampString = "553588018.476606"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2233,11 +1641,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.793214"
+            timestampString = "553588018.476656"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2249,7 +1657,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.7934541"
+            timestampString = "553588018.476716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "295"
@@ -2265,11 +1673,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.793698"
+            timestampString = "553588018.476831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2281,11 +1689,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.793959"
+            timestampString = "553588018.476898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
             <Locations>
@@ -2329,11 +1737,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.794329"
+            timestampString = "553588018.476963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "setUserInfoInDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2345,11 +1753,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Profiles/UserConnectedProfileViewController.swift"
-            timestampString = "553568249.794621"
+            timestampString = "553588018.477024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "setUserInfoInDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2361,7 +1769,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Model/CustomNotifications.swift"
-            timestampString = "553573501.33406"
+            timestampString = "553588018.477074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -2377,107 +1785,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4607821"
+            timestampString = "553588018.477561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "handleDeeplink(title:uid:conversationId:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "FlashLuv.AppDelegate.handleDeeplink(title: Swift.String, uid: Swift.String, conversationId: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/AppDelegate.swift"
-                  timestampString = "553573502.524465"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "239"
-                  endingLineNumber = "239"
-                  offsetFromSymbolStart = "340">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in FlashLuv.AppDelegate.handleDeeplink(title: Swift.String, uid: Swift.String, conversationId: Swift.Optional&lt;Swift.String&gt;) -&gt; ()"
-                  moduleName = "FlashLuv"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/AppDelegate.swift"
-                  timestampString = "553573502.526806"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "240"
-                  endingLineNumber = "240"
-                  offsetFromSymbolStart = "36">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4613791"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "handleDeeplink(title:uid:conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.461888"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "handleDeeplink(title:uid:conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.4623801"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "handleDeeplink(title:uid:conversationId:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/AppDelegate.swift"
-            timestampString = "553569818.462865"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
             landmarkName = "handleDeeplink(title:uid:conversationId:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2488,13 +1800,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.33417"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.47785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "setupView()"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "handleDeeplink(title:uid:conversationId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2504,13 +1816,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.335029"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.4781049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "createConversation()"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "handleDeeplink(title:uid:conversationId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2520,77 +1832,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.335843"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.478357"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "createConversation()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.33666"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.337433"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.338254"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "getUserInfoFromFirebase()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.339045"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "createConversation()"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "handleDeeplink(title:uid:conversationId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2601,7 +1849,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.339853"
+            timestampString = "553588018.478611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
@@ -2617,7 +1865,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserTableViewCell.swift"
-            timestampString = "553573501.340126"
+            timestampString = "553588018.4791909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
@@ -2633,7 +1881,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Conversations/ConversationByUserViewController.swift"
-            timestampString = "553573501.340385"
+            timestampString = "553588018.479786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -2645,27 +1893,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.340646"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.341397"
+            timestampString = "553588018.479852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -2681,7 +1913,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlashLuv/Quizz/QuestionsTableViewCell.swift"
-            timestampString = "553573501.3416311"
+            timestampString = "553588018.480116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -2696,13 +1928,237 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
-            timestampString = "553573501.341846"
+            filePath = "FlashLuv/Conversations/ConversationsViewController.swift"
+            timestampString = "553588018.480359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "observeUserConversations()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Conversations/ConversationsViewController.swift"
+            timestampString = "553588018.480423"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "observeUserConversations()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Conversations/ConversationsViewController.swift"
+            timestampString = "553588018.48048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "observeUserConversations()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Conversations/ConversationsViewController.swift"
+            timestampString = "553588018.4805371"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.480595"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.480872"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "application(_:didReceiveRemoteNotification:fetchCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/AppDelegate.swift"
+            timestampString = "553588018.481122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
+            timestampString = "553588018.481364"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
+            landmarkName = "getUserInfoFromFirebase()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in FlashLuv.ProfileViewController.getUserInfoFromFirebase() -&gt; ()"
+                  moduleName = "FlashLuv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Profiles/ProfileViewController.swift"
+                  timestampString = "553587754.66189"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
+                  offsetFromSymbolStart = "5552">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in FlashLuv.ProfileViewController.getUserInfoFromFirebase() -&gt; ()"
+                  moduleName = "FlashLuv"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ismadia/Desktop/ESGI/FlashLove_iOS/FlashLuv/Profiles/ProfileViewController.swift"
+                  timestampString = "553587754.664561"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
+                  offsetFromSymbolStart = "6768">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
+            timestampString = "553588018.481421"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "getUserInfoFromFirebase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Profiles/ProfileViewController.swift"
+            timestampString = "553588018.4814709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
+            landmarkName = "updatelikesCount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
+            timestampString = "553588018.4815201"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
+            landmarkName = "getUserInfoFromFirebase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
+            timestampString = "553588018.481833"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "getUserInfoFromFirebase()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlashLuv/Quizz/QuizzAnswerViewController.swift"
+            timestampString = "553588018.482067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "getUserInfoFromFirebase()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
